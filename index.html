@@ -9,20 +9,36 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #2094352a;
-            color: #060606;
+            background-color: #f0f8ff;
+            color: #333;
             line-height: 1.7;
         }
         header {
-            background: #1104a0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 3px solid #ff4500;
+            border-bottom: 3px solid #4682b4;
+            color: white;
         }
         main {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 2rem auto;
             padding: 0 1rem;
+        }
+        .linha-superior {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        section {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         h1 {
             margin: 0;
@@ -31,25 +47,31 @@
             letter-spacing: 1px;
         }
         h2 {
-            color: #000000;
-            margin-top: 2rem;
-            border-left: 4px solid #bc1725;
+            color: #1e3c72;
+            margin-top: 0;
+            border-left: 4px solid #4682b4;
             padding-left: 1rem;
         }
         .destaque {
-            background: #131313;
+            background: #e6f2ff;
             padding: 1.5rem;
             border-radius: 5px;
             margin: 1.5rem 0;
-            box-shadow: 0 0 15px rgba(130, 122, 119, 0.1);
+            border-left: 4px solid #1e3c72;
         }
         footer {
-            text-align: right;
+            text-align: center;
             padding: 1.5rem;
-            background: #ffffff;
+            background: #1e3c72;
             margin-top: 3rem;
             font-size: 0.9rem;
-            color: #14046c;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .linha-superior {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -60,13 +82,39 @@
     </header>
 
     <main>
-        <section>
-            <h2>Apresentação</h2>
-            <div>
-                <p>Dados Impopulares é uma página dedicada a divulgação de dados, informações ao público em geral</p>
-            </div>
-        </section>
+        <div class="linha-superior">
+            <section>
+                <h2>Apresentação</h2>
+                <div>
+                    <p>Dados Impopulares é uma página dedicada a divulgação de dados, informações ao público em geral.</p>
+                    <div class="destaque">
+                        <p>Aqui você encontrará informações que nem sempre são populares, mas que são baseadas em fatos e dados concretos.</p>
+                    </div>
+                </div>
+            </section>
 
+            <section>
+                <h2>Últimas Publicações</h2>
+                <div class="destaque">
+                    <p>Os temas que vamos abordar com dados sobre:</p>
+                    <p>• Economia</p>
+                    <p>• Trabalho e renda</p>
+                    <p>• Comércio Exterior</p>
+                    <p>• Energia</p>
+                    <p>• Educação</p>
+                    <p>• Saúde</p>
+                    <p>• Demografia</p>
+                    <p>• Segurança Pública</p>
+                    <p>• Meio Ambiente</p>
+                    <p>• e Muito mais</p>
+                </div>
+            </section>
+        </div>
+
+        <section>
+            <h2>Sobre Nós</h2>
+            <p>Nossa missão é trazer à tona dados que muitas vezes são ignorados ou pouco divulgados.</p>
+        </section>
     </main>
 
     <footer>
