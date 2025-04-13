@@ -8,12 +8,13 @@
     <title>Dados Impopulares</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff;
+            background: linear-gradient(135deg, #7ec8e3 0%, #e0f2fe 50%, #ffffff 100%);
             color: #333;
             line-height: 1.7;
+            min-height: 100vh;
         }
         header {
             background: linear-gradient(135deg,
@@ -28,10 +29,11 @@
           );
             padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 3px solid #ffd700; /* Bordas douradas para contraste */
+            border-bottom: 3px solid #ffd700;
             color: #ffffff;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         main {
             max-width: 1200px;
@@ -45,11 +47,12 @@
             justify-content: space-between;
             margin-bottom: 20px;
         }
+
         section {
             flex: 1;
             min-width: 300px;
             background: linear-gradient(145deg, 
-                rgba(10, 45, 66, 0.95) 0%,  /* Azul escuro com transparência */
+                rgba(10, 45, 66, 0.95) 0%,
                 rgba(34, 115, 132, 0.95) 50%, 
                 rgba(74, 184, 180, 0.95) 100%
             );
@@ -58,10 +61,9 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            color: #f0f8ff; /* Azul claro para texto */
+            color: #f0f8ff;
         }
         
-        /* Fundo branco semi-transparente para o conteúdo */
         section::after {
             content: "";
             position: absolute;
@@ -73,19 +75,16 @@
             z-index: 0;
         }
         
-        /* Garante que o conteúdo fique acima do overlay */
         section > * {
             position: relative;
             z-index: 1;
         }
         
-        /* Melhora contraste para títulos */
         section h2 {
             color: white;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
         
-        /* Estiliza listas para melhor legibilidade */
         section ul, section ol {
             background: rgba(255, 255, 255, 0.08);
             border-radius: 6px;
@@ -113,7 +112,6 @@
             margin: 1.5rem 0;
         }
         
-        /* 2. VERDE ANALÍTICO (frescor sem exagero) */
         h2.theme-2 {
             color: #2a7a62;
             border-left: 4px solid;
@@ -126,7 +124,6 @@
             margin: 1.5rem 0;
         }
         
-        /* 3. AZUL-TURQUESA (toque moderno) */
         h2.theme-3 {
             color: #0077b6;
             border-left: 4px solid;
@@ -161,43 +158,6 @@
             font-size: 0.9rem;
             color: white;
         }
-        
-
-        .menu-lateral {
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100vh;
-            width: 200px;
-            background: linear-gradient(to bottom, #1a4b6d, #2d6e6d);
-            padding: 1rem;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-            z-index: 100;
-        }
-
-        .menu-lateral nav ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 2rem;
-        }
-
-        .menu-lateral nav li {
-            margin-bottom: 1.5rem;
-        }
-
-        .menu-lateral nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-lateral nav a:hover {
-            background-color: rgba(255,255,255,0.2);
-        }
 
         .botoes-temas {
             display: flex;
@@ -224,34 +184,7 @@
             background: rgba(255,255,255,0.3);
         }
 
-        .conteudo-principal {
-            margin-left: 220px; /* Compensa a largura do menu */
-        }
-
-        @media (max-width: 768px) {
-            .menu-lateral {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 1rem 0;
-            }
-            
-            .conteudo-principal {
-                margin-left: 0;
-            }
-            
-            .menu-lateral nav ul {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                justify-content: center;
-                margin-top: 1rem;
-            }
-            
-            .menu-lateral nav li {
-                margin-bottom: 0;
-            }
-        }
+        /* REMOVIDO: .conteudo-principal (não é mais necessário) */
 
         .citacao-destaque {
             margin: 2rem 0;
@@ -333,8 +266,6 @@
             font-style: italic;
         }
         
-        /* NOVOS ESTILOS ADICIONADOS (apenas complementos) */
-        /* Links institucionais */
         .institutional-link {
             color: white;
             text-decoration: underline;
@@ -348,13 +279,11 @@
             text-decoration: none;
         }
         
-        /* Ajustes para ícones do Bootstrap */
         .bi {
             font-size: 1.05em;
-            vertical-align: -0.125em; /* Alinhamento preciso */
+            vertical-align: -0.125em;
         }
         
-        /* Melhorias de espaçamento */
         .footer-institutional p {
             display: flex;
             flex-wrap: wrap;
@@ -363,7 +292,6 @@
             gap: 0.3rem;
         }
         
-        /* Responsividade para mobile */
         @media (max-width: 576px) {
             .footer-institutional p {
                 flex-direction: column;
@@ -383,141 +311,126 @@
     </style>
 </head>
 
-
-
 <body>
-    <aside class="menu-lateral">
- 
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-            </ul>
-        </nav>
-    </aside>
-
-
-    <div class="conteudo-principal">
-        <header>
-            <h1>Dados Impopulares</h1>
-            <p>Nem todos os dados são populares</p>
-            
-            <!-- BOTÕES DE TEMAS ADICIONADOS NO HEADER -->
-            <div class="botoes-temas">
-                <button class="botao-tema">Infográficos</button>
-                <button class="botao-tema">Mapas</button>
-                <button class="botao-tema">Boletim Impopular</button>
-            </div>
-        </header>
-
-        <main>
-            <!-- Primeira Linha -->
-            <div class="linha-superior">
-                <!-- Seção de Apresentação -->
-                <section class="card-apresentacao">
-                    <h2 class="theme-3">Apresentação</h2>
-                    <div class="conteudo-card">
-                        <p class="texto-destaque">Dados Impopulares é uma iniciativa dedicada à divulgação de dados e informações públicos 
-                            
-                        </p>
-                        
-                        <div class="box-destaque">
-                            <p class="texto-box">Temas</p>
-                        </div>
-                    </div>
-                </section>
+    <header>
+        <h1>Dados Impopulares</h1>
+        <p>Nem todos os dados são populares</p>
         
-                <!-- Seção de Temas -->
-                <section class="card-temas">
-                    <h2 class="theme-2">Temas Abordados:</h2>
-                    <div class="box-temas">
-                        <ul class="lista-temas">
-                            <li class="item-tema"><span class="icone-tema">📊</span> Economia</li>
-                            <li class="item-tema"><span class="icone-tema">💼</span> Trabalho e Renda</li>
-                            <li class="item-tema"><span class="icone-tema">🌐</span> Comércio Exterior</li>
-                            <li class="item-tema"><span class="icone-tema">⚡</span> Energia</li>
-                            <li class="item-tema"><span class="icone-tema">🎓</span> Educação</li>
-                            <li class="item-tema"><span class="icone-tema">🏥</span> Saúde</li>
-                            <li class="item-tema"><span class="icone-tema">🧑‍🤝‍🧑</span> Demografia</li>
-                            <li class="item-tema"><span class="icone-tema">🚔</span> Segurança Pública</li>
-                            <li class="item-tema"><span class="icone-tema">🌳</span> Meio Ambiente</li>
-                            <li class="item-tema"><span class="icone-tema">➕</span> Outros temas relevantes</li>
-                        </ul>
+        <!-- Menu superior melhorado -->
+        <div class="botoes-temas">
+            <button class="botao-tema">Infográficos</button>
+            <button class="botao-tema">Mapas</button>
+            <button class="botao-tema">Boletim Impopular</button>
+            <button class="botao-tema">Inicio</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Primeira Linha -->
+        <div class="linha-superior">
+            <!-- Seção de Apresentação -->
+            <section class="card-apresentacao">
+                <h2 class="theme-3">Apresentação</h2>
+                <div class="conteudo-card">
+                    <p class="texto-destaque">Dados Impopulares é uma iniciativa dedicada à divulgação de dados e informações públicos</p>
+                    
+                    <div class="box-destaque">
+                        <p class="texto-box">Temas</p>
                     </div>
-                </section>
-            </div>
-        
-            <!-- Segunda Linha -->
-            <div class="linha-superior">
-                <!-- Seção Sobre Nós -->
-                <section class="card-sobre">
-                    <h2 class="theme-1">Sobre Nós</h2>
-                    <div class="conteudo-sobre">
-                        <p class="texto-sobre">O Dados Impopulares é um projeto acadêmico dedicado a disseminação de dados públicos. 
-                            Nossa missão é transformar planilhas em Infográficos e Mapas temáticos.</p>
-                        
-                        <ol class="lista-objetivos">
-                            <li class="objetivo">Facilitar a interpretação de dados públicos</li>
-                            <li class="objetivo">Produzir representações visuais para análise de informações</li>
-                            <li class="objetivo">Disseminar conhecimento </li>
-                        </ol>
-                        
-                        <figure class="citacao-destaque">
-                            <blockquote class="texto-citacao">
-                                <p>"Os dados não mentem, mas os mentirosos manipulam dados."</p>
-                            </blockquote>
-                            <figcaption class="autor-citacao">— David Salsburg</figcaption>
-                        </figure>
-                        
-                    </div>
-                </section>
-            </div>
-        
-            <!-- Terceira Linha -->
-            <div class="linha-superior">
-                <section class="card-fontes">
-                    <h2 class="theme-1">Principais Fontes de Dados</h2>
-                    <ul>
-                        <li>IBGE</li>
-                        <li>INEP</li>
-                        <li>ANTT</li>
-                        <li>ANP</li>
-                        <li>DATASUS</li>
-                        <li>Portal da Transparência - CGU</li>
+                </div>
+            </section>
+    
+            <!-- Seção de Temas -->
+            <section class="card-temas">
+                <h2 class="theme-2">Temas Abordados:</h2>
+                <div class="box-temas">
+                    <ul class="lista-temas">
+                        <li class="item-tema"><span class="icone-tema">📊</span> Economia</li>
+                        <li class="item-tema"><span class="icone-tema">💼</span> Trabalho e Renda</li>
+                        <li class="item-tema"><span class="icone-tema">🌐</span> Comércio Exterior</li>
+                        <li class="item-tema"><span class="icone-tema">⚡</span> Energia</li>
+                        <li class="item-tema"><span class="icone-tema">🎓</span> Educação</li>
+                        <li class="item-tema"><span class="icone-tema">🏥</span> Saúde</li>
+                        <li class="item-tema"><span class="icone-tema">🧑‍🤝‍🧑</span> Demografia</li>
+                        <li class="item-tema"><span class="icone-tema">🚔</span> Segurança Pública</li>
+                        <li class="item-tema"><span class="icone-tema">🌳</span> Meio Ambiente</li>
+                        <li class="item-tema"><span class="icone-tema">➕</span> Outros temas relevantes</li>
                     </ul>
-                </section>
-            </div>
-        </main>
+                </div>
+            </section>
+        </div>
+    
+        <!-- Segunda Linha -->
+        <div class="linha-superior">
+            <!-- Seção Sobre Nós -->
+            <section class="card-sobre">
+                <h2 class="theme-1">Sobre Nós</h2>
+                <div class="conteudo-sobre">
+                    <p class="texto-sobre">O Dados Impopulares é um projeto acadêmico dedicado a disseminação de dados públicos. 
+                        Nossa missão é transformar planilhas em Infográficos e Mapas temáticos.</p>
+                    
+                    <ol class="lista-objetivos">
+                        <li class="objetivo">Facilitar a interpretação de dados públicos</li>
+                        <li class="objetivo">Produzir representações visuais para análise de informações</li>
+                        <li class="objetivo">Disseminar conhecimento</li>
+                    </ol>
+                    
+                    <figure class="citacao-destaque">
+                        <blockquote class="texto-citacao">
+                            <p>"Os dados não mentem, mas os mentirosos manipulam dados."</p>
+                        </blockquote>
+                        <figcaption class="autor-citacao">— David Salsburg</figcaption>
+                    </figure>
+                </div>
+            </section>
+        </div>
+    
+        <!-- Terceira Linha -->
+        <div class="linha-superior">
+            <section class="card-fontes">
+                <h2 class="theme-1">Principais Fontes de Dados</h2>
+                <ul>
+                    <li>IBGE</li>
+                    <li>INEP</li>
+                    <li>ANTT</li>
+                    <li>ANP</li>
+                    <li>DATASUS</li>
+                    <li>Portal da Transparência - CGU</li>
+                </ul>
+            </section>
+        </div>
+    </main>
 
-        <footer class="site-footer">
-            <div class="footer-content">
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/dados_impopulares/" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-instagram"></i> @dados_impopulares
-                    </a>
-                    <span class="separator">|</span>
-                    <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-instagram"></i> @estatistica.ufmt
-                    </a>
-                </div>
-                
-                <div class="footer-institutional">
-                    <p>
-                        <i class="bi bi-mortarboard institution-icon"></i> Projeto do 
-                        <a href="https://www.ufmt.br/unidade/dest" target="_blank" rel="noopener noreferrer" class="institutional-link">
-                            Departamento de Estatística
-                        </a> 
-                        da <abbr title="Universidade Federal de Mato Grosso">UFMT</abbr>
-                        <i class="bi bi-bar-chart-fill stats-icon"></i>
-                    </p>
-                </div>
-                
-                <div class="footer-copyright">
-                    <p>
-                        © 2024 Dados Impopulares | 
-                        <q>A verdade não precisa ser popular</q>
-                    </p>
-                </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/dados_impopulares/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @dados_impopulares
+                </a>
+                <span class="separator">|</span>
+                <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @estatistica.ufmt
+                </a>
             </div>
-        </footer>
+            
+            <div class="footer-institutional">
+                <p>
+                    <i class="bi bi-mortarboard institution-icon"></i> Projeto do 
+                    <a href="https://www.ufmt.br/unidade/dest" target="_blank" rel="noopener noreferrer" class="institutional-link">
+                        Departamento de Estatística
+                    </a> 
+                    da <abbr title="Universidade Federal de Mato Grosso">UFMT</abbr>
+                    <i class="bi bi-bar-chart-fill stats-icon"></i>
+                </p>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>
+                    © 2025 Dados Impopulares | 
+                    <q>A verdade não precisa ser popular</q>
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
