@@ -2,6 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dados Impopulares</title>
     <style>
@@ -14,11 +16,22 @@
             line-height: 1.7;
         }
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg,
+            #0a2d42 0%,
+            #0e3a52 12.5%,
+            #134862 25%,
+            #1a5d73 37.5%,
+            #227384 50%,
+            #2d8a94 62.5%,
+            #3aa1a4 75%,
+            #4ab8b4 100%
+          );
             padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 3px solid #4682b4;
-            color: white;
+            border-bottom: 3px solid #ffd700; /* Bordas douradas para contraste */
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         main {
             max-width: 1200px;
@@ -35,10 +48,52 @@
         section {
             flex: 1;
             min-width: 300px;
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(145deg, 
+                rgba(10, 45, 66, 0.95) 0%,  /* Azul escuro com transparência */
+                rgba(34, 115, 132, 0.95) 50%, 
+                rgba(74, 184, 180, 0.95) 100%
+            );
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            color: #f0f8ff; /* Azul claro para texto */
+        }
+        
+        /* Fundo branco semi-transparente para o conteúdo */
+        section::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 0;
+        }
+        
+        /* Garante que o conteúdo fique acima do overlay */
+        section > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Melhora contraste para títulos */
+        section h2 {
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Estiliza listas para melhor legibilidade */
+        section ul, section ol {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 1rem 1.5rem;
+        }
+        
+        section li {
+            padding: 0.3rem 0;
         }
         h1 {
             margin: 0;
@@ -46,18 +101,57 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        h2 {
-            color: #1e3c72;
-            margin-top: 0;
-            border-left: 4px solid #4682b4;
+        h2.theme-1 {
+            color: #1a4b6d;
+            border-left: 4px solid;
+            border-image: linear-gradient(to bottom, #1a4b6d, #2d6e6d) 1;
             padding-left: 1rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 1rem;
+            border-radius: 0 4px 4px 0;
+            margin: 1.5rem 0;
+        }
+        
+        /* 2. VERDE ANALÍTICO (frescor sem exagero) */
+        h2.theme-2 {
+            color: #2a7a62;
+            border-left: 4px solid;
+            border-image: linear-gradient(to bottom, #0a4d6b, #2a7a62) 1;
+            padding-left: 1rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 1rem;
+            border-radius: 0 4px 4px 0;
+            margin: 1.5rem 0;
+        }
+        
+        /* 3. AZUL-TURQUESA (toque moderno) */
+        h2.theme-3 {
+            color: #0077b6;
+            border-left: 4px solid;
+            border-image: linear-gradient(to bottom, #0077b6, #00a896) 1;
+            padding-left: 1rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 1rem;
+            border-radius: 0 4px 4px 0;
+            margin: 1.5rem 0;
         }
         .destaque {
             background: #e6f2ff;
             padding: 1.5rem;
             border-radius: 5px;
             margin: 1.5rem 0;
-            border-left: 4px solid #1e3c72;
+            border-left: 4px solid #677081;
+        }
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid #2a5298;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: #333;
+            font-size: 1.1em;
         }
         footer {
             text-align: center;
@@ -68,57 +162,362 @@
             color: white;
         }
         
+
+        .menu-lateral {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 200px;
+            background: linear-gradient(to bottom, #1a4b6d, #2d6e6d);
+            padding: 1rem;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .menu-lateral nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+        }
+
+        .menu-lateral nav li {
+            margin-bottom: 1.5rem;
+        }
+
+        .menu-lateral nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-lateral nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .botoes-temas {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .botao-tema {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .botao-tema:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .conteudo-principal {
+            margin-left: 220px; /* Compensa a largura do menu */
+        }
+
         @media (max-width: 768px) {
-            .linha-superior {
+            .menu-lateral {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem 0;
+            }
+            
+            .conteudo-principal {
+                margin-left: 0;
+            }
+            
+            .menu-lateral nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+            
+            .menu-lateral nav li {
+                margin-bottom: 0;
+            }
+        }
+
+        .citacao-destaque {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-left: 4px solid #2d6e6d;
+        }
+        
+        .texto-citacao {
+            color: #333;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .autor-citacao {
+            color: #666;
+            text-align: right;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .site-footer {
+            background: linear-gradient(135deg, #1a4b6d, #2d6e6d);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-social {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-social a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: opacity 0.3s;
+            display: inline-block;
+        }
+        
+        .footer-social a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        .separator {
+            opacity: 0.5;
+            margin: 0 0.5rem;
+        }
+        
+        .footer-institutional {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+        
+        .footer-institutional i {
+            margin: 0 0.3rem;
+            opacity: 0.8;
+        }
+        
+        .stats-icon {
+            transform: rotate(15deg);
+        }
+        
+        .footer-copyright {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85rem;
+        }
+        
+        .footer-copyright q {
+            font-style: italic;
+        }
+        
+        /* NOVOS ESTILOS ADICIONADOS (apenas complementos) */
+        /* Links institucionais */
+        .institutional-link {
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.2rem 0;
+        }
+        
+        .institutional-link:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+        
+        /* Ajustes para ícones do Bootstrap */
+        .bi {
+            font-size: 1.05em;
+            vertical-align: -0.125em; /* Alinhamento preciso */
+        }
+        
+        /* Melhorias de espaçamento */
+        .footer-institutional p {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        /* Responsividade para mobile */
+        @media (max-width: 576px) {
+            .footer-institutional p {
                 flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .footer-social {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .separator {
+                display: none;
             }
         }
     </style>
 </head>
+
+
+
 <body>
-    <header>
-        <h1>Dados Impopulares</h1>
-        <p>Nem todos os dados são populares</p>
-    </header>
+    <aside class="menu-lateral">
+ 
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-    <main>
-        <div class="linha-superior">
-            <section>
-                <h2>Apresentação</h2>
-                <div>
-                    <p>Dados Impopulares é uma página dedicada a divulgação de dados, informações ao público em geral.</p>
-                    <div class="destaque">
-                        <p>Aqui você encontrará informações que nem sempre são populares, mas que são baseadas em fatos e dados concretos.</p>
+
+    <div class="conteudo-principal">
+        <header>
+            <h1>Dados Impopulares</h1>
+            <p>Nem todos os dados são populares</p>
+            
+            <!-- BOTÕES DE TEMAS ADICIONADOS NO HEADER -->
+            <div class="botoes-temas">
+                <button class="botao-tema">Infográficos</button>
+                <button class="botao-tema">Mapas</button>
+                <button class="botao-tema">Boletim Impopular</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Primeira Linha -->
+            <div class="linha-superior">
+                <!-- Seção de Apresentação -->
+                <section class="card-apresentacao">
+                    <h2 class="theme-3">Apresentação</h2>
+                    <div class="conteudo-card">
+                        <p class="texto-destaque">Dados Impopulares é uma iniciativa dedicada à divulgação de dados e informações públicos 
+                            
+                        </p>
+                        
+                        <div class="box-destaque">
+                            <p class="texto-box">Temas</p>
+                        </div>
                     </div>
+                </section>
+        
+                <!-- Seção de Temas -->
+                <section class="card-temas">
+                    <h2 class="theme-2">Temas Abordados:</h2>
+                    <div class="box-temas">
+                        <ul class="lista-temas">
+                            <li class="item-tema"><span class="icone-tema">📊</span> Economia</li>
+                            <li class="item-tema"><span class="icone-tema">💼</span> Trabalho e Renda</li>
+                            <li class="item-tema"><span class="icone-tema">🌐</span> Comércio Exterior</li>
+                            <li class="item-tema"><span class="icone-tema">⚡</span> Energia</li>
+                            <li class="item-tema"><span class="icone-tema">🎓</span> Educação</li>
+                            <li class="item-tema"><span class="icone-tema">🏥</span> Saúde</li>
+                            <li class="item-tema"><span class="icone-tema">🧑‍🤝‍🧑</span> Demografia</li>
+                            <li class="item-tema"><span class="icone-tema">🚔</span> Segurança Pública</li>
+                            <li class="item-tema"><span class="icone-tema">🌳</span> Meio Ambiente</li>
+                            <li class="item-tema"><span class="icone-tema">➕</span> Outros temas relevantes</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        
+            <!-- Segunda Linha -->
+            <div class="linha-superior">
+                <!-- Seção Sobre Nós -->
+                <section class="card-sobre">
+                    <h2 class="theme-1">Sobre Nós</h2>
+                    <div class="conteudo-sobre">
+                        <p class="texto-sobre">O Dados Impopulares é um projeto acadêmico dedicado a disseminação de dados públicos. 
+                            Nossa missão é transformar planilhas em Infográficos e Mapas temáticos.</p>
+                        
+                        <ol class="lista-objetivos">
+                            <li class="objetivo">Facilitar a interpretação de dados públicos</li>
+                            <li class="objetivo">Produzir representações visuais para análise de informações</li>
+                            <li class="objetivo">Disseminar conhecimento </li>
+                        </ol>
+                        
+                        <figure class="citacao-destaque">
+                            <blockquote class="texto-citacao">
+                                <p>"Os dados não mentem, mas os mentirosos manipulam dados."</p>
+                            </blockquote>
+                            <figcaption class="autor-citacao">— David Salsburg</figcaption>
+                        </figure>
+                        
+                    </div>
+                </section>
+            </div>
+        
+            <!-- Terceira Linha -->
+            <div class="linha-superior">
+                <section class="card-fontes">
+                    <h2 class="theme-1">Principais Fontes de Dados</h2>
+                    <ul>
+                        <li>IBGE</li>
+                        <li>INEP</li>
+                        <li>ANTT</li>
+                        <li>ANP</li>
+                        <li>DATASUS</li>
+                        <li>Portal da Transparência - CGU</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/dados_impopulares/" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-instagram"></i> @dados_impopulares
+                    </a>
+                    <span class="separator">|</span>
+                    <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-instagram"></i> @estatistica.ufmt
+                    </a>
                 </div>
-            </section>
-
-            <section>
-                <h2>Últimas Publicações</h2>
-                <div class="destaque">
-                    <p>Os temas que vamos abordar com dados sobre:</p>
-                    <p>• Economia</p>
-                    <p>• Trabalho e renda</p>
-                    <p>• Comércio Exterior</p>
-                    <p>• Energia</p>
-                    <p>• Educação</p>
-                    <p>• Saúde</p>
-                    <p>• Demografia</p>
-                    <p>• Segurança Pública</p>
-                    <p>• Meio Ambiente</p>
-                    <p>• e Muito mais</p>
+                
+                <div class="footer-institutional">
+                    <p>
+                        <i class="bi bi-mortarboard institution-icon"></i> Projeto do 
+                        <a href="https://www.ufmt.br/unidade/dest" target="_blank" rel="noopener noreferrer" class="institutional-link">
+                            Departamento de Estatística
+                        </a> 
+                        da <abbr title="Universidade Federal de Mato Grosso">UFMT</abbr>
+                        <i class="bi bi-bar-chart-fill stats-icon"></i>
+                    </p>
                 </div>
-            </section>
-        </div>
-
-        <section>
-            <h2>Sobre Nós</h2>
-            <p>Nossa missão é trazer à tona dados que muitas vezes são ignorados ou pouco divulgados.</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2024 Dados Impopulares | A verdade não precisa ser popular</p>
-    </footer>
+                
+                <div class="footer-copyright">
+                    <p>
+                        © 2024 Dados Impopulares | 
+                        <q>A verdade não precisa ser popular</q>
+                    </p>
+                </div>
+            </div>
+        </footer>
 </body>
 </html>
