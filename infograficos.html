@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sobre Nós - Dados Impopulares</title>
+        </title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(135deg, #10e3e6 0%, #7cc0ed 50%, #ffffff 100%);
+                color: #333;
+                line-height: 1.7;
+                min-height: 100vh;
+            }
+            header {
+                background: linear-gradient(135deg,
+                #0a2d42 0%,
+                #0e3a52 12.5%,
+                #134862 25%,
+                #1a5d73 37.5%,
+                #227384 50%,
+                #2d8a94 62.5%,
+                #3aa1a4 75%,
+                #4ab8b4 100%
+              );
+                padding: 2rem 1rem;
+                text-align: center;
+                border-bottom: 3px solid #ffd700;
+                color: #ffffff;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                position: relative;
+            }
+            main {
+                max-width: 1200px;
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+            .linha-superior {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+    
+            section {
+                flex: 1;
+                min-width: 300px;
+                background: linear-gradient(145deg, 
+                    rgba(10, 45, 66, 0.95) 0%,
+                    rgba(34, 115, 132, 0.95) 50%, 
+                    rgba(74, 184, 180, 0.95) 100%
+                );
+                border-radius: 12px;
+                padding: 2rem;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+                color: #f0f8ff;
+            }
+            
+            section::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.05);
+                z-index: 0;
+            }
+            
+            section > * {
+                position: relative;
+                z-index: 1;
+            }
+            
+            section h2 {
+                color: white;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            }
+            
+            section ul, section ol {
+                background: rgba(255, 255, 255, 0.08);
+                border-radius: 6px;
+                padding: 1rem 1.5rem;
+            }
+            
+            section li {
+                padding: 0.3rem 0;
+            }
+            h1 {
+                margin: 0;
+                font-size: 2.5rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            h2.theme-1 {
+                color: #1a4b6d;
+                border-left: 4px solid;
+                border-image: linear-gradient(to bottom, #1a4b6d, #2d6e6d) 1;
+                padding-left: 1rem;
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.7);
+                padding: 0.8rem 1rem;
+                border-radius: 0 4px 4px 0;
+                margin: 1.5rem 0;
+            }
+            
+            h2.theme-2 {
+                color: #2a7a62;
+                border-left: 4px solid;
+                border-image: linear-gradient(to bottom, #0a4d6b, #2a7a62) 1;
+                padding-left: 1rem;
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.7);
+                padding: 0.8rem 1rem;
+                border-radius: 0 4px 4px 0;
+                margin: 1.5rem 0;
+            }
+            
+            h2.theme-3 {
+                color: #0077b6;
+                border-left: 4px solid;
+                border-image: linear-gradient(to bottom, #0077b6, #00a896) 1;
+                padding-left: 1rem;
+                display: inline-block;
+                background: rgba(255, 255, 255, 0.7);
+                padding: 0.8rem 1rem;
+                border-radius: 0 4px 4px 0;
+                margin: 1.5rem 0;
+            }
+            .destaque {
+                background: #e6f2ff;
+                padding: 1.5rem;
+                border-radius: 5px;
+                margin: 1.5rem 0;
+                border-left: 4px solid #677081;
+            }
+            blockquote {
+                font-style: italic;
+                border-left: 4px solid #2a5298;
+                padding-left: 1rem;
+                margin: 1.5rem 0;
+                color: #333;
+                font-size: 1.1em;
+            }
+            footer {
+                text-align: center;
+                padding: 1.5rem;
+                background: #1e3c72;
+                margin-top: 3rem;
+                font-size: 0.9rem;
+                color: white;
+            }
+    
+            .botoes-temas {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(255,255,255,0.3);
+            }
+    
+            .botao-tema {
+                background: rgba(255,255,255,0.1);
+                color: white;
+                border: none;
+                padding: 0.5rem 1rem;
+                border-radius: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 0.8rem;
+            }
+    
+            .botao-tema:hover {
+                background: rgba(255,255,255,0.3);
+            }
+    
+            /* REMOVIDO: .conteudo-principal (não é mais necessário) */
+    
+            .citacao-destaque {
+                margin: 2rem 0;
+                padding: 1.5rem;
+                background: white;
+                border-left: 4px solid #2d6e6d;
+            }
+            
+            .texto-citacao {
+                color: #333;
+                font-size: 1.1rem;
+                margin: 0;
+            }
+            
+            .autor-citacao {
+                color: #666;
+                text-align: right;
+                font-size: 0.9rem;
+                margin-top: 0.5rem;
+            }
+    
+            .site-footer {
+                background: linear-gradient(135deg, #1a4b6d, #2d6e6d);
+                color: white;
+                padding: 2rem 1rem;
+                text-align: center;
+                font-size: 0.9rem;
+            }
+            
+            .footer-content {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            
+            .footer-social {
+                margin-bottom: 1rem;
+            }
+            
+            .footer-social a {
+                color: white;
+                text-decoration: none;
+                margin: 0 0.5rem;
+                transition: opacity 0.3s;
+                display: inline-block;
+            }
+            
+            .footer-social a:hover {
+                opacity: 0.8;
+                text-decoration: underline;
+            }
+            
+            .separator {
+                opacity: 0.5;
+                margin: 0 0.5rem;
+            }
+            
+            .footer-institutional {
+                margin: 1rem 0;
+                line-height: 1.6;
+            }
+            
+            .footer-institutional i {
+                margin: 0 0.3rem;
+                opacity: 0.8;
+            }
+            
+            .stats-icon {
+                transform: rotate(15deg);
+            }
+            
+            .footer-copyright {
+                margin-top: 1.5rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(255,255,255,0.2);
+                font-size: 0.85rem;
+            }
+            
+            .footer-copyright q {
+                font-style: italic;
+            }
+            
+            .institutional-link {
+                color: white;
+                text-decoration: underline;
+                font-weight: 500;
+                transition: opacity 0.3s;
+                padding: 0.2rem 0;
+            }
+            
+            .institutional-link:hover {
+                opacity: 0.8;
+                text-decoration: none;
+            }
+            
+            .bi {
+                font-size: 1.05em;
+                vertical-align: -0.125em;
+            }
+            
+            .footer-institutional p {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 0.3rem;
+            }
+            
+            @media (max-width: 576px) {
+                .footer-institutional p {
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                
+                .footer-social {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                
+                .separator {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+
+<body>
+    <header>
+        <h1>Inf</h1>
+        <p>Nem todos os dados são populares</p>
+        
+        <div class="botoes-temas">
+            <a href="index.html" class="botao-tema">Início</a>
+            <a href="sobre_nos.html" class="botao-tema">Sobre Nós</a>
+            <a href="infograficos.html" class="botao-tema">Infográficos Nós</a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="sobre-container">
+            <h2>Infográficos Impopulares</h2>
+            <p>Em Breve Infográficos Impopulaores</p>
+    
+        </div>
+    </main>
+    
+     <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/dados_impopulares/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @dados_impopulares
+                </a>
+                <span class="separator">|</span>
+                <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @estatistica.ufmt
+                </a>
+            </div>
+            
+            <div class="footer-institutional">
+                <p>
+                    <i class="bi bi-mortarboard institution-icon"></i> Projeto Dados Impopulares 
+                    <a href="https://www.ufmt.br/unidade/dest" target="_blank" rel="noopener noreferrer" class="institutional-link">
+                        Uma Nova Forma de apresentar dados públicos
+                    </a> 
+                    Um Projeto da <abbr title="Universidade Federal de Mato Grosso">UFMT</abbr>
+                    <i class="bi bi-bar-chart-fill stats-icon"></i>
+                </p>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>
+                    © 2025 Dados Impopulares | 
+                    <q>A verdade não precisa ser popular</q>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
