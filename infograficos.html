@@ -248,6 +248,52 @@
         .card-link:hover {
             text-decoration: none;
         }
+
+        /*Botoes*/
+
+          /* Botões */
+    .botoes-temas {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .badge {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .badge-pill {
+        border-radius: 50rem;
+    }
+    
+    .badge-primary {
+        background-color: #1a4b6d;
+        color: white;
+    }
+    
+    .badge-info {
+        background-color: #2d8a94;
+        color: white;
+    }
+    
+    .badge-success {
+        background-color: #2a7a62;
+        color: white;
+    }
+    
+    .badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        opacity: 0.9;
+    }
     </style>
 </head>
 
@@ -257,9 +303,9 @@
         <p>Os melhores Infográficos com Estatísticas Públicas</p>
         
         <div class="botoes-temas">
-            <a href="index.html" class="botao-tema">Início</a>
-            <a href="sobre_nos.html" class="botao-tema">Sobre Nós</a>
-            <a href="infograficos.html" class="botao-tema">Infográficos</a>
+            <a href="index.html" class="badge badge-pill badge-primary">Início</a>
+            <a href="sobre_nos.html" class="badge badge-pill badge-info">Sobre Nós</a>
+            <a href="infograficos.html" class="badge badge-pill badge-success">Infográficos</a>
         </div>
     </header>
     
