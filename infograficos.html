@@ -166,6 +166,88 @@
                 display: none;
             }
         }
+
+        /* Card */
+        .linha-superior {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .card-infografico {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg,
+                #0b6786 0%,
+                #0e3a52 12.5%,
+                #134862 25%,
+                #1a5d73 37.5%,
+                #227384 50%,
+                #2d8a94 62.5%,
+                #3aa1a4 75%,
+                #4ab8b4 100%
+            );
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-infografico:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg,
+                #0a5a8a 0%,
+                #0d4a7a 12.5%,
+                #12608a 25%,
+                #1a75a3 37.5%,
+                #2288b4 50%,
+                #2d9ac5 62.5%,
+                #3aadd6 75%,
+                #4ac0e7 100%
+            );
+        }
+        
+        .card-infografico h3 {
+            margin-top: 0;
+            padding-bottom: 0.5rem;
+            margin-right: 40px; /* Espaço para o ícone */
+        }
+        
+        .card-infografico p {
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        .card-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .card-infografico:hover .card-icon {
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .card-link {
+            text-decoration: none;
+            color: white;
+            display: block;
+            height: 100%;
+        }
+        
+        .card-link:hover {
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -182,9 +264,78 @@
     </header>
     
     <main>
-        <div class="sobre-container">
-            <h2>Infográficos Impopulares</h2>
-            <p>Em Breve Infográficos Impopulares</p>
+        <div class="sobre-container" style="text-align: center;">
+            <h3>Temas para nossos infográficos</h3>
+        </div>
+    
+        <div class="linha-superior">
+            <!-- Card 1 -->
+            <div class="card-infografico">
+                <a href="#" class="card-link">
+                    <div class="card-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h3>Economia</h3>
+                    <p>Em Desenvolvimento</p>
+                </a>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="card-infografico">
+                <a href="#" class="card-link">
+                    <div class="card-icon">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                    <h3>Comércio Exterior</h3>
+                    <p>Em Desenvolvimento</p>
+                </a>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="card-infografico">
+                <a href="#" class="card-link">
+                    <div class="card-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <h3>Energia</h3>
+                    <p>Em Desenvolvimento</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="linha-superior">
+            <!-- Card 4 -->
+            <div class="card-infografico">
+                <a href="#" class="card-link">
+                    <div class="card-icon">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+                    <h3>Saúde</h3>
+                    <p>Em Desenvolvimento</p>
+                </a>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="card-infografico">
+                <a href="#" class="card-link">
+                    <div class="card-icon">
+                        <i class="bi bi-book"></i>
+                    </div>
+                    <h3>Educação</h3>
+                    <p>Em Desenvolvimento</p>
+                </a>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="card-infografico">
+                <a href="#" class="card-link">
+                    <div class="card-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3>Segurança Pública</h3>
+                    <p>Em Desenvolvimento</p>
+                </a>
+            </div>
         </div>
     </main>
     
