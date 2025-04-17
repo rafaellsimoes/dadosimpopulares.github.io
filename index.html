@@ -13,29 +13,31 @@
             font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #10e3e6 0%, #7cc0ed 50%, #ffffff 100%);
+            background: linear-gradient(135deg,
+    #0a1a2a 0%,
+    #0b2b36 25%,
+    #0e4a4a 50%,
+    #1a6b5a 75%,
+    #28a178 100%
+);
             color: #333;
             line-height: 1.7;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
-        
-        /* Cabeçalho */
         header {
             background: linear-gradient(135deg,
-            #0a2d42 0%,
-            #0e3a52 12.5%,
-            #134862 25%,
-            #1a5d73 37.5%,
-            #227384 50%,
-            #2d8a94 62.5%,
-            #3aa1a4 75%,
-            #4ab8b4 100%
-            );
+            #0a1a2a 0%,      /* Azul quase preto */
+            #0d2338 20%,     /* Azul marinho profundo */
+            #112f4a 40%,     /* Azul político (tom clássico PSDB) */
+            #1a3e5f 60%,     /* Azul royal */
+            #24507a 80%,     /* Azul médio (mais vibrante) */
+            #2d5d8c 100%     /* Azul eletrico (destaque) */
+        );
             padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 3px solid #ffd700;
+            border-bottom: 3px solid #0af531;
             color: #ffffff;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -95,10 +97,12 @@
         /* Seção de Fontes */
         .fontes-section {
             background: linear-gradient(135deg,
-            #0a2d42 0%,
-            #134862 50%,
-            #2d8a94 100%
-            );
+    #0a1a2a 0%,      /* Azul quase preto */
+    #0d2338 25%,     /* Azul marinho */
+    #112f4a 50%,     /* Azul político (PSDB) */
+    #1a3e5f 75%,     /* Azul royal */
+    #24507a 100%     /* Azul intenso */
+);
             border-radius: 10px;
             padding: 2rem;
             margin: 3rem 0;
@@ -143,40 +147,92 @@
             text-decoration: underline;
         }
         
-        /* Footer igual ao header */
+        /* Footer */
         .site-footer {
-            background: linear-gradient(135deg,
-            #0a2d42 0%,
-            #0e3a52 12.5%,
-            #134862 25%,
-            #1a5d73 37.5%,
-            #227384 50%,
-            #2d8a94 62.5%,
-            #3aa1a4 75%,
-            #4ab8b4 100%
-            );
-            padding: 1.5rem;
-            text-align: center;
+            background: linear-gradient(135deg, #1a4b6d, #2d6e6d);
             color: white;
-            border-top: 3px solid #ffd700;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
         }
-        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
         .footer-social {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
-        
         .footer-social a {
             color: white;
             text-decoration: none;
             margin: 0 0.5rem;
+            transition: opacity 0.3s;
+            display: inline-block;
         }
-        
+        .footer-social a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        .separator {
+            opacity: 0.5;
+            margin: 0 0.5rem;
+        }
+        .footer-institutional {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+        .footer-institutional i {
+            margin: 0 0.3rem;
+            opacity: 0.8;
+        }
+        .stats-icon {
+            transform: rotate(15deg);
+        }
         .footer-copyright {
-            margin-top: 0.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85rem;
         }
-        
         .footer-copyright q {
             font-style: italic;
+        }
+        .institutional-link {
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.2rem 0;
+        }
+        .institutional-link:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+        .bi {
+            font-size: 1.05em;
+            vertical-align: -0.125em;
+        }
+        .footer-institutional p {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        @media (max-width: 576px) {
+            .footer-institutional p {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .footer-social {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .separator {
+                display: none;
+            }
         }
         
         /* Botões */
@@ -187,7 +243,6 @@
             margin-top: 1.5rem;
             flex-wrap: wrap;
         }
-        
         .badge {
             padding: 0.6rem 1.2rem;
             font-size: 0.85rem;
@@ -196,16 +251,26 @@
             text-transform: uppercase;
             transition: all 0.3s ease;
             text-decoration: none;
+        }
+        .badge-pill {
             border-radius: 50rem;
         }
-        
         .badge-primary {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: #1a4b6d;
             color: white;
         }
-        
-        .badge-primary:hover {
-            background-color: rgba(255, 255, 255, 0.3);
+        .badge-info {
+            background-color: #2d8a94;
+            color: white;
+        }
+        .badge-success {
+            background-color: #2a7a62;
+            color: white;
+        }
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            opacity: 0.9;
         }
     </style>
 </head>
@@ -216,9 +281,9 @@
         <p>Nem todos os dados são populares</p>
         
         <div class="botoes-temas">
-            <a href="index.html" class="badge badge-primary">Início</a>
-            <a href="sobre_nos.html" class="badge badge-primary">Sobre Nós</a>
-            <a href="infograficos.html" class="badge badge-primary">Infográficos</a>
+            <a href="index.html" class="badge badge-pill badge-primary">Início</a>
+            <a href="sobre_nos.html" class="badge badge-pill badge-info">Sobre Nós</a>
+            <a href="infograficos.html" class="badge badge-pill badge-success">Infográficos</a>
         </div>
     </header>
 
@@ -227,22 +292,34 @@
         <div class="carousel-fixo">
             <div id="carouselDados" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
+                    <!-- Seção de Fontes com links nos nomes -->
                     <div class="carousel-item active">
-                        <h3 class="carousel-title">Renda Média</h3>
+                        <h3 class="carousel-title">Refinancimento da Dívida Pública Fedral</h3>
                         <div class="carousel-data">
-                            R$ 2.880 | Diferença homens/mulheres: 20.5%
+                            R$ 1,4 tri | 24,28% do Orçamento Fiscal e Seguridade Social de 2025
                         </div>
                         <div class="carousel-footer">
-                            Dados trimestrais | Fonte: PNAD Contínua
+                            Orçamento da União de 2025 | Fonte: Siga Brasil - Senado Federal
                         </div>
                     </div>
+                    <!-- Seção de Fontes com links nos nomes -->
                     <div class="carousel-item">
-                        <h3 class="carousel-title">Inflação</h3>
+                        <h3 class="carousel-title">Arrecadação Federal</h3>
                         <div class="carousel-data">
-                            IPCA 12 meses: 4.62% | Mensal: 0.21%
+                            Crescimento Real de 9,62% em 2024 | R$ 2,652 trilhões 
                         </div>
                         <div class="carousel-footer">
-                            Atualizado em dez/2023 | Fonte: IBGE
+                          Fonte: Receita Federal do Brasil
+                        </div>
+                    </div>
+                    <!-- Seção de Fontes com links nos nomes -->
+                    <div class="carousel-item">
+                        <h3 class="carousel-title">Censo Demográfico de 2022</h3>
+                        <div class="carousel-data">
+                            Uiramutã - RR  | 94,45% da população autodeclarada indígena 
+                        </div>
+                        <div class="carousel-footer">
+                          Fonte: Censo Demográfico de 2022 - IBGE
                         </div>
                     </div>
                 </div>
@@ -256,37 +333,52 @@
         </div>
 
         <!-- Seção de Fontes com links nos nomes -->
-        <section class="fontes-section">
-            <h2>Principais Fontes de Dados</h2>
-            <ul class="fontes-lista">
-                <li class="fonte-item">
-                    <a href="https://www.ibge.gov.br/" class="fonte-link" target="_blank">
-                        <i class="bi bi-building"></i> IBGE - Instituto Brasileiro de Geografia e Estatística
-                    </a>
-                </li>
-                <li class="fonte-item">
-                    <a href="https://www.gov.br/inep/pt-br" class="fonte-link" target="_blank">
-                        <i class="bi bi-book"></i> INEP - Instituto Nacional de Estudos e Pesquisas Educacionais
-                    </a>
-                </li>
-                <li class="fonte-item">
-                    <a href="https://datasus.saude.gov.br/" class="fonte-link" target="_blank">
-                        <i class="bi bi-heart-pulse"></i> DATASUS - Departamento de Informática do SUS
-                    </a>
-                </li>
-            </ul>
+        <section class="fontes-section" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);" >
+            <h2 style="color: hsl(0, 0%, 100%); text-align: center; margin-bottom: 2rem;">Principais Fontes de Dados</h2>
+            <div class="quadrados-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; justify-items: center;">
+                <!-- Quadrado 1 -->
+                <div class="quadrado-fonte" style="background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 150px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="bi bi-graph-up" style="font-size: 2rem; color: #1a4b6d; margin-bottom: 0.5rem;"></i>
+                    <a href="https://www.ibge.gov.br/" target="_blank" style="color: #1a4b6d; font-weight: bold; text-decoration: none;">IBGE</a>
+                </div>
+                
+                <!-- Quadrado 2 -->
+                <div class="quadrado-fonte" style="background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 150px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="bi bi-book" style="font-size: 2rem; color: #1a4b6d; margin-bottom: 0.5rem;"></i>
+                    <a href="https://www.gov.br/inep/pt-br" target="_blank" style="color: #1a4b6d; font-weight: bold; text-decoration: none;">INEP</a>
+                </div>
+                
+                <!-- Quadrado 3 -->
+                <div class="quadrado-fonte" style="background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 150px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="bi bi-heart-pulse" style="font-size: 2rem; color: #1a4b6d; margin-bottom: 0.5rem;"></i>
+                    <a href="https://datasus.saude.gov.br/" target="_blank" style="color: #1a4b6d; font-weight: bold; text-decoration: none;">DATASUS</a>
+                </div>
+
+                <!-- Quadrado 4 -->
+                <div class="quadrado-fonte" style="background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 150px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="bi bi-building" style="font-size: 2rem; color: #1a4b6d; margin-bottom: 0.5rem;"></i>
+                    <a href="https://www.tesourotransparente.gov.br/" target="_blank" style="color: #1a4b6d; font-weight: bold; text-decoration: none;">Tesouro Nacional</a>
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- Footer igual ao header -->
+    <!-- Footer  -->
     <footer class="site-footer">
-        <div class="footer-social">
-            <a href="https://www.instagram.com/dados_impopulares/" target="_blank">@dados_impopulares</a>
-            <span>|</span>
-            <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank">@estatistica.ufmt</a>
-        </div>
-        <div class="footer-copyright">
-            © 2025 Dados Impopulares | <q>A verdade não precisa ser popular</q>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/dados_impopulares/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @dados_impopulares
+                </a>
+                <span class="separator">|</span>
+                <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @estatistica.ufmt
+                </a>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© 2025 Dados Impopulares | <q>A verdade não precisa ser popular</q></p>
+            </div>
         </div>
     </footer>
 
