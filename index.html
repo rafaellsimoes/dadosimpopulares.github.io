@@ -8,42 +8,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dados Impopulares</title>
     <style>
-        /* Estilos gerais */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg,
-    #0a1a2a 0%,
-    #0b2b36 25%,
-    #0e4a4a 50%,
-    #1a6b5a 75%,
-    #28a178 100%
-);
+                #0a1a2a 0%,
+                #0b2b36 25%,
+                #0e4a4a 50%,
+                #1a6b5a 75%,
+                #28a178 100%
+            );
             color: #333;
             line-height: 1.7;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
+
         header {
             background: linear-gradient(135deg,
-            #0a1a2a 0%,      /* Azul quase preto */
-            #0d2338 20%,     /* Azul marinho profundo */
-            #112f4a 40%,     /* Azul político (tom clássico PSDB) */
-            #1a3e5f 60%,     /* Azul royal */
-            #24507a 80%,     /* Azul médio (mais vibrante) */
-            #2d5d8c 100%     /* Azul eletrico (destaque) */
-        );
+                #0a1a2a 0%,
+                #0d2338 20%,
+                #112f4a 40%,
+                #1a3e5f 60%,
+                #24507a 80%,
+                #2d5d8c 100%
+            );
             padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 3px solid #0af531;
+            border-bottom: 3px solid #0ff707;
             color: #ffffff;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Conteúdo principal */
+
         main {
             max-width: 1200px;
             margin: 2rem auto;
@@ -51,102 +50,322 @@
             flex: 1;
             width: 100%;
         }
-        
-        /* Carrossel FIXO - sem colapso */
+
+        .botoes-temas {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border-radius: 50rem;
+        }
+
+        .badge-primary {
+            background-color: #1a4b6d;
+            color: white;
+        }
+
+        .badge-info {
+            background-color: #2d8a94;
+            color: white;
+        }
+
+        .badge-success {
+            background-color: #2a7a62;
+            color: white;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            opacity: 0.9;
+        }
+
+        /* Carrossel ajustado */
         .carousel-fixo {
-            background: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg,
+    #0a1f38 0%,     /* Azul naval escuro */
+    #0c2845 20%,     /* Azul marinho */
+    #0e3252 40%,     /* Azul petróleo */
+    #123d60 60%,     /* Azul royal */
+    #16496f 80%,     /* Azul elétrico */
+    #1a5680 100%     /* Azul cerúleo profundo */
+);
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin: 2rem auto;
-            max-width: 800px;
-            min-height: 300px;
+            margin: 1rem auto; /* Reduzi a margem externa */
+            width: 100%;
+            max-width: 100%;
+            height: auto; /* Altura automática */
+            min-height: 250px; /* Altura mínima reduzida */
             overflow: hidden;
+            position: relative;
+            padding: 1rem; /* Padding interno reduzido */
         }
-        
         .carousel-inner {
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            min-height: 300px;
+            height: 100%;
+            width: 100%;
         }
         
         .carousel-item {
             text-align: center;
-            padding: 1rem;
+            padding: 2rem;
+            width: 100%;
+            height: 100%;
+            position: absolute; /* Posicionamento absoluto para sobreposição */
+            top: 0;
+            left: 0;
+            display: flex !important; /* Força display flex */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0; /* Inicia invisível */
+            transition: opacity 1.2s ease-in-out; /* Transição suave */
+        }
+        
+        .carousel.fade .carousel-item {
+            transition: opacity 1.2s ease-in-out; 
+        }
+        .carousel-item.active {
+            opacity: 1; /* Mostra apenas o slide ativo */
+            position: relative; /* Mantém o fluxo */
         }
         
         .carousel-title {
-            font-size: 1.8rem;
-            color: #1a4b6d;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #fefefe;
+            margin-bottom: 1.5rem;
             font-weight: 600;
+            max-width: 800px;
         }
         
         .carousel-data {
-            font-size: 1.4rem;
-            color: #2d6e6d;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
         }
         
         .carousel-footer {
-            color: #666;
-            font-size: 0.9rem;
+            color: #ffffff;
+            font-size: 1rem;
             font-style: italic;
+            max-width: 800px;
         }
         
-        /* Seção de Fontes */
+        .carousel-control-prev, 
+        .carousel-control-next {
+            width: 5%;
+            background-color: rgba(0,0,0,0.3);
+            opacity: 0.6;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            margin: 0;
+        }
+        
+        .carousel-control-prev {
+            left: 0;
+            border-radius: 10px 0 0 10px;
+        }
+        
+        .carousel-control-next {
+            right: 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .carousel-control-prev:hover, 
+        .carousel-control-next:hover {
+            background-color: rgba(253, 252, 252, 0.6);
+            opacity: 1;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .carousel-fixo {
+                height: 50vh;
+            }
+            
+            .carousel-item {
+                padding: 1.5rem;
+            }
+        
+            .carousel-title {
+                font-size: 1.6rem;
+            }
+        
+            .carousel-data {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel-fixo {
+                height: 55vh; /* Um pouco mais alto para mobile */
+            }
+            
+            .carousel-item {
+                padding: 1rem;
+            }
+        
+            .carousel-title {
+                font-size: 1.4rem;
+            }
+        
+            .carousel-data {
+                font-size: 1.1rem;
+            }
+        
+            .carousel-footer {
+                font-size: 0.85rem;
+            }
+            
+            .carousel-control-prev, 
+            .carousel-control-next {
+                width: 10%; /* Botões maiores em mobile */
+            }
+        }
+        /* Seção de Fontes ajustada */
         .fontes-section {
             background: linear-gradient(135deg,
-    #0a1a2a 0%,      /* Azul quase preto */
-    #0d2338 25%,     /* Azul marinho */
-    #112f4a 50%,     /* Azul político (PSDB) */
-    #1a3e5f 75%,     /* Azul royal */
-    #24507a 100%     /* Azul intenso */
-);
-            border-radius: 10px;
+                #0a1a2a 0%,           /* Azul naval profundo */
+                #0d2a3a 15%,          /* Azul petróleo */
+                rgba(23, 102, 102, 0.9) 35%,  /* Verde-azulado com transparência */
+                rgba(30, 150, 100, 0.85) 50%, /* Verde esmeralda suave */
+                rgba(255, 255, 255, 0.2) 51%, /* Refração branca (ponto focal) */
+                rgba(30, 150, 100, 0.85) 52%, /* Retorno ao verde */
+                #1a5d7a 70%,          /* Azul cerúleo */
+                #2d8c9c 85%,          /* Azul turquesa */
+                #38b8a0 100%          /* Verde-água luminoso */
+            );
+            border-radius: 8px;
             padding: 2rem;
-            margin: 3rem 0;
-            color: white;
+            margin: 2rem 0;
+            box-shadow:
+                0 8px 32px rgba(0, 60, 80, 0.25),
+                0 4px 8px rgba(0, 180, 150, 0.3),
+                inset 0 0 16px rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
         }
         
+        /* Efeito de brilho dinâmico */
+        .fontes-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, 
+                rgba(255, 255, 255, 0.15) 0%, 
+                rgba(255, 255, 255, 0) 70%);
+            animation: rotate-glow 20s linear infinite;
+            opacity: 0.6;
+            z-index: 0;
+        }
+        
+        @keyframes rotate-glow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Garantindo que o conteúdo fique acima do efeito */
+        .fontes-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .fontes-section:hover {
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.2),
+                0 4px 6px rgba(10, 80, 50, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.15);
+        }
+
         .fontes-section h2 {
             text-align: center;
-            margin-bottom: 1.5rem;
-            color: #ffd700;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
         }
-        
-        .fontes-lista {
-            list-style: none;
-            padding: 0;
+
+        .quadrados-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            justify-items: center;
         }
-        
-        .fonte-item {
-            padding: 1rem;
-            border-radius: 5px;
-            background: rgba(255,255,255,0.1);
-            transition: all 0.3s;
-        }
-        
-        .fonte-item:hover {
-            background: rgba(255,255,255,0.2);
-        }
-        
-        .fonte-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
+
+        .quadrado-fonte {
+            background: linear-gradient(
+                135deg, 
+                #0a5f7a 0%, 
+                #0d3248 12.5%, 
+                #11425a 25%, 
+                #165a72 37.5%, 
+                #1c728a 50%, 
+                #258b9e 62.5%, 
+                #32a4b2 75%, 
+                #45bdc6 87.5%, 
+                #5cd6da 100%
+              );
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            transition: all 0.3s;
+            color: rgb(0, 0, 0);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            min-height: 180px;
         }
-        
-        .fonte-link:hover {
-            text-decoration: underline;
+
+        .quadrado-fonte:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+            background: linear-gradient(
+                135deg,
+                #0a5a8a 0%,          /* Azul marinho profundo */
+                #0d4a7a 12.5%,      /* Azul ultramarino */
+                #12608a 25%,        /* Azul oceano médio */
+                #1a75a3 37.5%,      /* Azul tropical */
+                #2288b4 50%,        /* Azul claro coralino */
+                #2d9ac5 62.5%,      /* Azul céu-marinho */
+                #3aadd6 75%,        /* Azul piscina brilhante */
+                #4ac0e7 87.5%,     /* Azul claro cristalino (ponto adicional) */
+                #5fd4f0 100%       /* Azul gelo (toque final mais claro) */
+              );
         }
-        
+
+        .quadrado-fonte i {
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        .quadrado-fonte a {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
         /* Footer */
         .site-footer {
             background: linear-gradient(135deg, #1a4b6d, #2d6e6d);
@@ -156,13 +375,16 @@
             font-size: 0.9rem;
             margin-top: auto;
         }
+
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
         }
+
         .footer-social {
             margin-bottom: 1rem;
         }
+
         .footer-social a {
             color: white;
             text-decoration: none;
@@ -170,107 +392,60 @@
             transition: opacity 0.3s;
             display: inline-block;
         }
+
         .footer-social a:hover {
             opacity: 0.8;
             text-decoration: underline;
         }
+
         .separator {
             opacity: 0.5;
             margin: 0 0.5rem;
         }
-        .footer-institutional {
-            margin: 1rem 0;
-            line-height: 1.6;
-        }
-        .footer-institutional i {
-            margin: 0 0.3rem;
-            opacity: 0.8;
-        }
-        .stats-icon {
-            transform: rotate(15deg);
-        }
+
         .footer-copyright {
             margin-top: 1.5rem;
             padding-top: 1rem;
             border-top: 1px solid rgba(255,255,255,0.2);
             font-size: 0.85rem;
         }
+
         .footer-copyright q {
             font-style: italic;
         }
-        .institutional-link {
-            color: white;
-            text-decoration: underline;
-            font-weight: 500;
-            transition: opacity 0.3s;
-            padding: 0.2rem 0;
-        }
-        .institutional-link:hover {
-            opacity: 0.8;
-            text-decoration: none;
-        }
-        .bi {
-            font-size: 1.05em;
-            vertical-align: -0.125em;
-        }
-        .footer-institutional p {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 0.3rem;
-        }
-        @media (max-width: 576px) {
-            .footer-institutional p {
-                flex-direction: column;
-                gap: 0.5rem;
+
+        @media (max-width: 992px) {
+            .quadrados-container {
+                grid-template-columns: repeat(2, 1fr);
             }
+            
+            .carousel-seade .carousel-inner {
+                padding: 2rem 5%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .quadrados-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .carousel-seade .carousel-title {
+                font-size: 1.4rem;
+            }
+            
+            .carousel-seade .carousel-data {
+                font-size: 1.1rem;
+            }
+            
             .footer-social {
                 display: flex;
                 flex-direction: column;
                 gap: 0.5rem;
             }
+            
             .separator {
                 display: none;
             }
-        }
-        
-        /* Botões */
-        .botoes-temas {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .badge {
-            padding: 0.6rem 1.2rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .badge-pill {
-            border-radius: 50rem;
-        }
-        .badge-primary {
-            background-color: #1a4b6d;
-            color: white;
-        }
-        .badge-info {
-            background-color: #2d8a94;
-            color: white;
-        }
-        .badge-success {
-            background-color: #2a7a62;
-            color: white;
-        }
-        .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            opacity: 0.9;
         }
     </style>
 </head>
@@ -281,20 +456,20 @@
         <p>Nem todos os dados são populares</p>
         
         <div class="botoes-temas">
-            <a href="index.html" class="badge badge-pill badge-primary">Início</a>
-            <a href="sobre_nos.html" class="badge badge-pill badge-info">Sobre Nós</a>
-            <a href="infograficos.html" class="badge badge-pill badge-success">Infográficos</a>
+            <a href="index.html" class="badge badge-primary">Início</a>
+            <a href="sobre_nos.html" class="badge badge-info">Sobre Nós</a>
+            <a href="infograficos.html" class="badge badge-success">Infográficos</a>
         </div>
     </header>
 
     <main>
-        <!-- Carrossel FIXO -->
+        <!-- Carrossel ajustado -->
         <div class="carousel-fixo">
             <div id="carouselDados" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <!-- Seção de Fontes com links nos nomes -->
+                    <!-- Slide 1 -->
                     <div class="carousel-item active">
-                        <h3 class="carousel-title">Refinancimento da Dívida Pública Federal</h3>
+                        <h3 class="carousel-title">Refinanciamento da Dívida Pública Federal</h3>
                         <div class="carousel-data">
                             R$ 1,4 tri | 24,28% do Orçamento Fiscal e Seguridade Social de 2025
                         </div>
@@ -302,68 +477,82 @@
                             Orçamento da União de 2025 | Fonte: Siga Brasil - Senado Federal
                         </div>
                     </div>
-                    <!-- Seção de Fontes com links nos nomes -->
-                    <div class="carousel-item">
-                        <h3 class="carousel-title">Arrecadação Federal</h3>
-                        <div class="carousel-data">
-                            Crescimento Real de 9,62% em 2024 | R$ 2,652 trilhões 
-                        </div>
-                        <div class="carousel-footer">
-                          Fonte: Receita Federal do Brasil
-                        </div>
-                    </div>
-                    <!-- Seção de Fontes com links nos nomes -->
+                    
+                    <!-- Slide 2 -->
                     <div class="carousel-item">
                         <h3 class="carousel-title">Censo Demográfico de 2022</h3>
                         <div class="carousel-data">
-                            Uiramutã - RR  | 94,45% da população autodeclarada indígena 
+                            Uiramutã - RR | 94,45% da população autodeclarada indígena
                         </div>
                         <div class="carousel-footer">
-                          Fonte: Censo Demográfico de 2022 - IBGE
+                            Fonte: Censo Demográfico de 2022 - IBGE
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <h3 class="carousel-title">Arrecadação Federal</h3>
+                        <div class="carousel-data">
+                            Crescimento Real de 9,62% em 2024 | R$ 2,652 trilhões
+                        </div>
+                        <div class="carousel-footer">
+                            Fonte: Receita Federal do Brasil
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 4 -->
+                    <div class="carousel-item">
+                        <h3 class="carousel-title">Saneamento Básico</h3>
+                        <div class="carousel-data">
+                            64,69% dos domícilios conectados a Rede Esgoto 
+                        </div>
+                        <div class="carousel-footer">
+                            Fonte: Censo Demográfico de 2022 - IBGE
                         </div>
                     </div>
                 </div>
+                
+                <!-- Controles -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselDados" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselDados" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
                 </button>
             </div>
         </div>
 
-        <!-- Seção de Fontes com links nos nomes -->
-        <section class="fontes-section" style="box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);" >
-            <h2 style="color: hsl(0, 0%, 100%); text-align: center; margin-bottom: 2rem;">Principais Fontes de Dados</h2>
-            <div class="quadrados-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; justify-items: center;">
-                <!-- Quadrado 1 -->
-                <div class="quadrado-fonte" style="background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 150px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <i class="bi bi-graph-up" style="font-size: 2rem; color: #1a4b6d; margin-bottom: 0.5rem;"></i>
-                    <a href="https://www.ibge.gov.br/" target="_blank" style="color: #1a4b6d; font-weight: bold; text-decoration: none;">IBGE</a>
+        <!-- Seção de Fontes ajustada para 3 por linha -->
+        <section class="fontes-section">
+            <h2>Principais Fontes de Dados</h2>
+            <div class="quadrados-container">
+                <div class="quadrado-fonte">
+                    <i class="bi bi-graph-up"></i>
+                    <a href="https://www.ibge.gov.br/" target="_blank">IBGE</a>
                 </div>
                 
-                <!-- Quadrado 2 -->
-                <div class="quadrado-fonte" style="background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 150px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <i class="bi bi-book" style="font-size: 2rem; color: #1a4b6d; margin-bottom: 0.5rem;"></i>
-                    <a href="https://www.gov.br/inep/pt-br" target="_blank" style="color: #1a4b6d; font-weight: bold; text-decoration: none;">INEP</a>
+                <div class="quadrado-fonte">
+                    <i class="bi bi-book"></i>
+                    <a href="https://www.gov.br/inep/pt-br" target="_blank">INEP</a>
                 </div>
                 
-                <!-- Quadrado 3 -->
-                <div class="quadrado-fonte" style="background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 150px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <i class="bi bi-heart-pulse" style="font-size: 2rem; color: #1a4b6d; margin-bottom: 0.5rem;"></i>
-                    <a href="https://datasus.saude.gov.br/" target="_blank" style="color: #1a4b6d; font-weight: bold; text-decoration: none;">DATASUS</a>
+                <div class="quadrado-fonte">
+                    <i class="bi bi-heart-pulse"></i>
+                    <a href="https://datasus.saude.gov.br/" target="_blank">DATASUS</a>
                 </div>
 
-                <!-- Quadrado 4 -->
-                <div class="quadrado-fonte" style="background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 150px; height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                    <i class="bi bi-building" style="font-size: 2rem; color: #1a4b6d; margin-bottom: 0.5rem;"></i>
-                    <a href="https://www.tesourotransparente.gov.br/" target="_blank" style="color: #1a4b6d; font-weight: bold; text-decoration: none;">Tesouro Nacional</a>
+                <div class="quadrado-fonte">
+                    <i class="bi bi-building"></i>
+                    <a href="https://www.tesourotransparente.gov.br/" target="_blank">Tesouro Nacional</a>
                 </div>
+                
+                
             </div>
         </section>
     </main>
 
-    <!-- Footer igual ao header -->
     <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-social">
@@ -383,5 +572,13 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var myCarousel = new bootstrap.Carousel(document.getElementById('carouselDados'), {
+                interval: 8000,  // 8 segundos por slide (aumentado)
+                wrap: true
+            });
+        });
+    </script>
 </body>
 </html>
