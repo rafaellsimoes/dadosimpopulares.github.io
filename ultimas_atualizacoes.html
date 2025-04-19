@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográficos - Dados Impopulares</title>
+    <style>
+        /* ESTILOS ORIGINAIS PRESERVADOS (IDÊNTICOS AO SEU CÓDIGO) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg,
+    #0a1a2a 0%,
+    #0b2b36 25%,
+    #0e4a4a 50%,
+    #1a6b5a 75%,
+    #28a178 100%
+);
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: linear-gradient(135deg,
+    #0a1a2a 0%,      /* Azul quase preto */
+    #0d2338 20%,     /* Azul marinho profundo */
+    #112f4a 40%,     /* Azul político (tom clássico PSDB) */
+    #1a3e5f 60%,     /* Azul royal */
+    #24507a 80%,     /* Azul médio (mais vibrante) */
+    #2d5d8c 100%     /* Azul eletrico (destaque) */
+);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid #0ff707;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1;
+            width: 100%;
+        }
+        .sobre-container {
+            background: linear-gradient(145deg, rgba(10, 45, 66, 0.95) 0%, rgba(34, 115, 132, 0.95) 50%, rgba(74, 184, 180, 0.95) 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            color: #f0f8ff;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .botoes-temas {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .botao-tema {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+        .botao-tema:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .site-footer {
+            background: linear-gradient(135deg, #1a4b6d, #2d6e6d);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .footer-social {
+            margin-bottom: 1rem;
+        }
+        .footer-social a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: opacity 0.3s;
+            display: inline-block;
+        }
+        .footer-social a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        .separator {
+            opacity: 0.5;
+            margin: 0 0.5rem;
+        }
+        .footer-institutional {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+        .footer-institutional i {
+            margin: 0 0.3rem;
+            opacity: 0.8;
+        }
+        .stats-icon {
+            transform: rotate(15deg);
+        }
+        .footer-copyright {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85rem;
+        }
+        .footer-copyright q {
+            font-style: italic;
+        }
+        .institutional-link {
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.2rem 0;
+        }
+        .institutional-link:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+        .bi {
+            font-size: 1.05em;
+            vertical-align: -0.125em;
+        }
+        .footer-institutional p {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        @media (max-width: 576px) {
+            .footer-institutional p {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .footer-social {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .separator {
+                display: none;
+            }
+        }
+        .linha-superior {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .card-infografico {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, #0b6786 0%, #0e3a52 12.5%, #134862 25%, #1a5d73 37.5%, #227384 50%, #2d8a94 62.5%, #3aa1a4 75%, #4ab8b4 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-infografico:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #0a5a8a 0%, #0d4a7a 12.5%, #12608a 25%, #1a75a3 37.5%, #2288b4 50%, #2d9ac5 62.5%, #3aadd6 75%, #4ac0e7 100%);
+        }
+        .card-infografico h3 {
+            margin-top: 0;
+            padding-bottom: 0.5rem;
+            margin-right: 40px;
+        }
+        .card-infografico p {
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        .card-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+        .card-infografico:hover .card-icon {
+            color: white;
+            transform: scale(1.1);
+        }
+        .card-link {
+            text-decoration: none;
+            color: white;
+            display: block;
+            height: 100%;
+        }
+        .card-link:hover {
+            text-decoration: none;
+        }
+        .botoes-temas {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .badge {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .badge-pill {
+            border-radius: 50rem;
+        }
+        .badge-primary {
+            background-color: #1a4b6d;
+            color: white;
+        }
+        .badge-info {
+            background-color: #2d8a94;
+            color: white;
+        }
+        .badge-success {
+            background-color: #2a7a62;
+            color: white;
+        }
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            opacity: 0.9;
+        }
+        
+        /* NOVO ESTILO APENAS PARA A IMAGEM (SEM AFETAR O RESTO) */
+        .imagem-infografico {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Últimas Atualizações</h1>
+        <p>Resumo das Publicações feitas nas redes sociais da Dados Impopulares</p>
+        
+        <div class="botoes-temas">
+            <a href="index.html" class="badge badge-pill badge-primary">Início</a>
+            <a href="infograficos.html" class="badge badge-pill badge-success">Infográficos</a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="sobre-container" style="text-align: center;">
+            <h3>Últimas Publicações de Dados Impopulares nas Redes Sociais</h3>
+        </div>
+    
+        <div class="sobre-container">
+            <h3 style="text-align: center; margin-bottom: 1.5rem;">Percentual de Escolas sem Abastecimento de Água</h3>
+            
+            <!-- IMAGEM DO INFORGRÁFICO (APARECENDO DIRETAMENTE) -->
+            <img src="img_ultimas_atualizacoes/escolas_sem_agua.png"  
+                 class="imagem-infografico">
+            
+            <!-- TEXTO EXPLICATIVO -->
+            <div style="background: rgba(10, 45, 66, 0.7); border-left: 3px solid #095a04; padding: 1.2rem; border-radius: 0 8px 8px 0;">
+                <h4 style="margin-top: 0;">Sobre os dados</h4>
+                <p>Desafios da Educação do Brasil: O Abastecimento de água Potável - 💔 Sem água, sem futuro: o desafio das escolas brasileiras</p>
+                <p>Enquanto algumas regiões têm quase todas as escolas com água potável (menos de 3,8%), outras enfrentam cenários críticos – em certas áreas, 98,3% das escolas não têm acesso a esse recurso básico.</p>
+                <p>Como podemos falar em educação de qualidade sem garantir o mínimo?</p>
+                <p style="margin-bottom: 0; font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Fonte: Censo Escolar de 2024 - INEP | 
+                    <a href="https://www.instagram.com/p/DIfC_kuRdW2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" 
+                       target="_blank" 
+                       style="color: #0f0330; text-decoration: none; margin-left: 5px;">
+                        <i class="fab fa-instagram"></i> Ver no Instagram
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="sobre-container">
+            <h3 style="text-align: center; margin-bottom: 1.5rem;">Percentual de Escolas sem Abastecimento de ligação com a rede de esgoto</h3>
+            
+            <!-- IMAGEM DO INFORGRÁFICO (APARECENDO DIRETAMENTE) -->
+            <img src="img_ultimas_atualizacoes/escolas_sem_esgoto.png" 
+                 alt="Gráfico mostrando percentual de escolas sem água" 
+                 class="imagem-infografico">
+            
+            <!-- TEXTO EXPLICATIVO -->
+            <div style="background: rgba(10, 45, 66, 0.7); border-left: 3px solid #095a04; padding: 1.2rem; border-radius: 0 8px 8px 0;">
+                <h4 style="margin-top: 0;">Sobre os dados</h4>
+                <p>📊 Percentual de Escolas sem Acesso à Rede de Esgoto em 2024
+
+                    Os dados revelam as desigualdades no acesso ao saneamento básico nas escolas brasileiras. Enquanto algumas regiões apresentam menos de 3,9% das escolas sem esgoto, outras chegam a alarmantes 91,4%.
+                    
+                    💧 Saneamento é direito básico e essencial para a educação de qualidade!</p>
+                <p style="margin-bottom: 0; font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> Fonte: Censo Escolar de 2024 - INEP | 
+                    <a href="https://www.instagram.com/p/DIfCcmCxyH5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" 
+                       target="_blank" 
+                       style="color: #0f0330; text-decoration: none; margin-left: 5px;">
+                        <i class="fab fa-instagram"></i> Ver no Instagram
+                    </a>
+                </p>
+            </div>
+        </div>
+
+            <div class="sobre-container">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Emenda de Comissão de Bancada Per Capita</h3>
+                
+                <!-- IMAGEM DO INFORGRÁFICO (APARECENDO DIRETAMENTE) -->
+                <img src="img_ultimas_atualizacoes/emenda_per_capita.png"  
+                     class="imagem-infografico">
+                
+                <!-- TEXTO EXPLICATIVO -->
+                <div style="background: rgba(10, 45, 66, 0.7); border-left: 3px solid #095a04; padding: 1.2rem; border-radius: 0 8px 8px 0;">
+                    <h4 style="margin-top: 0;">Sobre os dados</h4>
+                    <p>Sabe quanto a seu Estado recebeu de emendas parlamentares por habitante em 2024? 🧐💸
+
+                        Os repasses de emendas de bancada variam MUITO entre os estados! 🗺️
+                        
+                        Usando dados oficiais do Portal da Transparência (CGU) e projeções do IBGE (2024), calculamos o valor per capita (por habitante) desses recursos.
+                        
+                        O que são emendas de bancada?
+                        São recursos negociados coletivamente pela bancada de deputados/senadores de cada estado para investimentos em saúde, educação, infraestrutura e outros projetos locais.
+                        
+                        💡 Por que o valor per capita importa?
+                        Ele revela se o repasse é equilibrado com o tamanho da população. Um valor alto pode indicar maior influência política ou necessidades urgentes; um valor baixo, menor prioridade no Orçamento.
+                        </p>
+                    <p style="margin-bottom: 0; font-size: 0.9rem;">
+                        <i class="fas fa-info-circle"></i> Fonte: Portal da Transparência - CGU | Estimativas Populacionais de 2024 - IBGE
+                        <a href="https://www.instagram.com/p/DIfC_kuRdW2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" 
+                           target="_blank" 
+                           style="color: #0f0330; text-decoration: none; margin-left: 5px;">
+                            <i class="fab fa-instagram"></i> Ver no Instagram
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+
+       
+
+
+
+    </main>
+    
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/dados_impopulares/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @dados_impopulares
+                </a>
+                <span class="separator">|</span>
+                <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @estatistica.ufmt
+                </a>
+            </div>
+            
+            <div class="footer-copyright">
+                <p>© 2025 Dados Impopulares | <q>A verdade não precisa ser popular</q></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
