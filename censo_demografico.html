@@ -377,13 +377,13 @@
         const ctx = document.getElementById('grafico').getContext('2d');
         
         // Cores para as categorias do gráfico
-        const coresCategorias = [
-            '#EFEFEFFF', // Branca
-            '#000000FF', // Preta
-            '#F0F40EFF', // Amarela
-            '#580000FF', // Parda
-            '#884201FF'  // Indígena
-        ];
+       const coresCategorias = [
+  '#f5f5f5',  // Branca - Branco levemente acinzentado
+  '#1a1a1a',  // Preta - Preto profundo (não puro #000 para melhor impressão)
+  '#f39c12',  // Amarela - Dourado/âmbar (referência à tonalidade asiática)
+  '#8e44ad',  // Parda - Roxo terroso (mistura simbólica)
+  '#27ae60'   // Indígena - Verde floresta (conexão com natureza)
+];
         
         // Carregar dados do JSON
         fetch('dados_populacao_mun.json')
