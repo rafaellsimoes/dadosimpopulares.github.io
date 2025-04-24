@@ -342,7 +342,7 @@
     
     <main>
         <div class="grafico-container">
-            <h2>Composição da População Brasileira no Censo Demográfico de 2022</h2>
+            <h2>Composição da População Brasileira no Censo de 2022</h2>
             
             <div class="controles-grafico">
                 <div class="controle">
@@ -362,12 +362,35 @@
             </div>
             
             <canvas id="grafico"></canvas>
-        </div>
+
+            <div class="container">
+                <h3>População Brasileira entre Homens e Mulheres nos Censos Demográficos de 2010 e 2022</h3>
+                
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="regiaoSelect">Região:</label>
+                        <select id="regiaoSelect" class="single-select">
+                            <option value="">Carregando...</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="estadoSelect">Estado: <span class="selected-count">(0 selecionados)</span></label>
+                        <select id="estadoSelect" multiple disabled>
+                            <option value="">Selecione uma região primeiro</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="municipioSelect">Município: <span class="selected-count">(0 selecionados)</span></label>
+                        <select id="municipioSelect" multiple disabled>
+                            <option value="">Selecione um estado primeiro</option>
+                        </select>
+                    </div>
+                </div>
     </main>
     
    
-
     <script>
+        // primeiro gráfico - de setores
         // Variáveis globais
         let dados = [];
         let chart;
@@ -377,13 +400,13 @@
         const ctx = document.getElementById('grafico').getContext('2d');
         
         // Cores para as categorias do gráfico
-       const coresCategorias = [
-  '#f5f5f5',  // Branca - Branco levemente acinzentado
-  '#1a1a1a',  // Preta - Preto profundo (não puro #000 para melhor impressão)
-  '#f39c12',  // Amarela - Dourado/âmbar (referência à tonalidade asiática)
-  '#8e44ad',  // Parda - Roxo terroso (mistura simbólica)
-  '#27ae60'   // Indígena - Verde floresta (conexão com natureza)
-];
+        const coresCategorias = [
+            '#EFEFEFFF', // Branca
+            '#000000FF', // Preta
+            '#F0F40EFF', // Amarela
+            '#580000FF', // Parda
+            '#884201FF'  // Indígena
+        ];
         
         // Carregar dados do JSON
         fetch('dados_populacao_mun.json')
@@ -521,6 +544,235 @@
         municipioSelect.addEventListener('change', atualizarGrafico);
         regiaoSelect.addEventListener('change', atualizarEstados);
     </script>
+
+    <script>
+        // Segundo gráfico - comparação homens/mulheres 2010-2022
+        let dadosComparativo = [];
+        let chartComparativo;
+        const regiaoSelectComp = document.getElementById('regiaoSelect');
+        const estadoSelectComp = document.getElementById('estadoSelect');
+        const municipioSelectComp = document.getElementById('municipioSelect');
+        const btnAtualizar = document.getElementById('btnAtualizar');
+        
+        // Criar um novo canvas para o gráfico comparativo
+        const canvasComparativo = document.createElement('canvas');
+        canvasComparativo.id = 'graficoComparativo';
+        document.querySelector('.grafico-container').appendChild(canvasComparativo);
+        const ctxComparativo = canvasComparativo.getContext('2d');
+    
+        // Cores para o gráfico comparativo
+        const coresComparativo = {
+            homens2010: 'rgba(54, 162, 235, 0.7)',
+            mulheres2010: 'rgba(255, 99, 132, 0.7)',
+            homens2022: 'rgba(54, 162, 235, 1)',
+            mulheres2022: 'rgba(255, 99, 132, 1)'
+        };
+    
+        // Carregar dados comparativos
+        fetch('dados_mun.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Erro ao carregar dados comparativos');
+                return response.json();
+            })
+            .then(json => {
+                dadosComparativo = json;
+                inicializarFiltrosComparativo();
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Não foi possível carregar os dados comparativos');
+            });
+    
+        // Funções auxiliares
+        function getSelecionadosComparativo(selectElement) {
+            return Array.from(selectElement.selectedOptions).map(option => option.value);
+        }
+    
+        function atualizarContadorComparativo(selectElement) {
+            const count = getSelecionadosComparativo(selectElement).length;
+            const labelElement = selectElement.previousElementSibling.querySelector('.selected-count');
+            if (labelElement) {
+                labelElement.textContent = `(${count} selecionados)`;
+            }
+            if (btnAtualizar) {
+                btnAtualizar.disabled = count === 0;
+            }
+        }
+    
+        function popularSelectComparativo(selectElement, valores, isMultiple = false) {
+            selectElement.innerHTML = valores.map(valor => 
+                `<option value="${valor}">${valor}</option>`
+            ).join('');
+            selectElement.disabled = false;
+            selectElement.multiple = isMultiple;
+        }
+    
+        // Inicializar filtros
+        function inicializarFiltrosComparativo() {
+            const regioes = [...new Set(dadosComparativo.map(item => item.regiao))];
+            popularSelectComparativo(regiaoSelectComp, regioes);
+            popularSelectComparativo(estadoSelectComp, [], true);
+            popularSelectComparativo(municipioSelectComp, [], true);
+        }
+    
+        // Atualizar estados
+        function atualizarEstadosComparativo() {
+            const regiao = regiaoSelectComp.value;
+            if (!regiao) return;
+            
+            const estados = [...new Set(
+                dadosComparativo
+                    .filter(item => item.regiao === regiao)
+                    .map(item => item.uf)
+            )].sort();
+            
+            popularSelectComparativo(estadoSelectComp, estados, true);
+            popularSelectComparativo(municipioSelectComp, [], true);
+            atualizarContadorComparativo(estadoSelectComp);
+        }
+    
+        // Atualizar municípios
+        function atualizarMunicipiosComparativo() {
+            const regiao = regiaoSelectComp.value;
+            const estadosSelecionados = getSelecionadosComparativo(estadoSelectComp);
+            if (!regiao || estadosSelecionados.length === 0) return;
+            
+            const municipios = [...new Set(
+                dadosComparativo
+                    .filter(item => item.regiao === regiao && estadosSelecionados.includes(item.uf))
+                    .map(item => item.municipio)
+            )].sort();
+            
+            popularSelectComparativo(municipioSelectComp, municipios, true);
+            atualizarContadorComparativo(municipioSelectComp);
+        }
+    
+        // Atualizar gráfico comparativo
+        function atualizarGraficoComparativo() {
+            const regiao = regiaoSelectComp.value;
+            const estadosSelecionados = getSelecionadosComparativo(estadoSelectComp);
+            const municipiosSelecionados = getSelecionadosComparativo(municipioSelectComp);
+            
+            if (estadosSelecionados.length === 0 || municipiosSelecionados.length === 0) return;
+            
+            // Filtrar dados selecionados
+            const dadosSelecionados = dadosComparativo.filter(item => 
+                item.regiao === regiao &&
+                estadosSelecionados.includes(item.uf) &&
+                municipiosSelecionados.includes(item.municipio)
+            );
+            
+            if (dadosSelecionados.length === 0) return;
+            
+            // Calcular totais
+            const totais = {
+                homens2010: 0,
+                mulheres2010: 0,
+                homens2022: 0,
+                mulheres2022: 0
+            };
+            
+            dadosSelecionados.forEach(item => {
+                totais.homens2010 += item.Homens_2010 || 0;
+                totais.mulheres2010 += item.Mulheres_2010 || 0;
+                totais.homens2022 += item.Homens_2022 || 0;
+                totais.mulheres2022 += item.Mulheres_2022 || 0;
+            });
+            
+            // Preparar dados para o gráfico
+            const labels = ['Homens 2010', 'Mulheres 2010', 'Homens 2022', 'Mulheres 2022'];
+            const valores = Object.values(totais);
+            const backgroundColors = [
+                coresComparativo.homens2010,
+                coresComparativo.mulheres2010,
+                coresComparativo.homens2022,
+                coresComparativo.mulheres2022
+            ];
+            
+            // Destruir gráfico anterior se existir
+            if (chartComparativo) {
+                chartComparativo.destroy();
+            }
+            
+            // Criar novo gráfico
+            chartComparativo = new Chart(ctxComparativo, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'População',
+                        data: valores,
+                        backgroundColor: backgroundColors,
+                        borderColor: backgroundColors.map(c => c.replace('0.7', '1')),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Quantidade de pessoas',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: `Comparativo Homens/Mulheres (${municipiosSelecionados.join(', ')})`,
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.raw.toLocaleString()} pessoas`;
+                                }
+                            }
+                        },
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+    
+        // Event listeners
+        regiaoSelectComp.addEventListener('change', () => {
+            atualizarEstadosComparativo();
+            popularSelectComparativo(municipioSelectComp, [], true);
+            if (btnAtualizar) btnAtualizar.disabled = true;
+        });
+        
+        estadoSelectComp.addEventListener('change', () => {
+            atualizarMunicipiosComparativo();
+            atualizarContadorComparativo(estadoSelectComp);
+            if (btnAtualizar) btnAtualizar.disabled = true;
+        });
+        
+        municipioSelectComp.addEventListener('change', () => {
+            atualizarContadorComparativo(municipioSelectComp);
+        });
+        
+        if (btnAtualizar) {
+            btnAtualizar.addEventListener('click', atualizarGraficoComparativo);
+        }
+    </script>
+    
 
     <footer class="site-footer">
         <div class="footer-content">
