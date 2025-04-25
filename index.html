@@ -12,13 +12,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg,
-                #0a1a2a 0%,
-                #0b2b36 25%,
-                #0e4a4a 50%,
-                #1a6b5a 75%,
-                #28a178 100%
-            );
+            background: linear-gradient(135deg, #0a1a2a 0%, #0b2b36 25%, #0e4a4a 50%, #1a6b5a 75%, #28a178 100%);
             color: #333;
             line-height: 1.7;
             min-height: 100vh;
@@ -27,14 +21,7 @@
         }
 
         header {
-            background: linear-gradient(135deg,
-                #0a1a2a 0%,
-                #0d2338 20%,
-                #112f4a 40%,
-                #1a3e5f 60%,
-                #24507a 80%,
-                #2d5d8c 100%
-            );
+            background: linear-gradient(135deg, #0a1a2a 0%, #0d2338 20%, #112f4a 40%, #1a3e5f 60%, #24507a 80%, #2d5d8c 100%);
             padding: 2rem 1rem;
             text-align: center;
             border-bottom: 3px solid #0ff707;
@@ -91,27 +78,20 @@
             opacity: 0.9;
         }
 
-        /* Carrossel ajustado */
         .carousel-fixo {
-            background: linear-gradient(135deg,
-    #0a1f38 0%,     /* Azul naval escuro */
-    #0c2845 20%,     /* Azul marinho */
-    #0e3252 40%,     /* Azul petróleo */
-    #123d60 60%,     /* Azul royal */
-    #16496f 80%,     /* Azul elétrico */
-    #1a5680 100%     /* Azul cerúleo profundo */
-);
+            background: linear-gradient(135deg, #0a1f38 0%, #0c2845 20%, #0e3252 40%, #123d60 60%, #16496f 80%, #1a5680 100%);
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin: 1rem auto; /* Reduzi a margem externa */
+            margin: 1rem auto;
             width: 100%;
             max-width: 100%;
-            height: auto; /* Altura automática */
-            min-height: 250px; /* Altura mínima reduzida */
+            height: auto;
+            min-height: 250px;
             overflow: hidden;
             position: relative;
-            padding: 1rem; /* Padding interno reduzido */
+            padding: 1rem;
         }
+        
         .carousel-inner {
             height: 100%;
             width: 100%;
@@ -122,23 +102,24 @@
             padding: 2rem;
             width: 100%;
             height: 100%;
-            position: absolute; /* Posicionamento absoluto para sobreposição */
+            position: absolute;
             top: 0;
             left: 0;
-            display: flex !important; /* Força display flex */
+            display: flex !important;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            opacity: 0; /* Inicia invisível */
-            transition: opacity 1.2s ease-in-out; /* Transição suave */
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
         }
         
         .carousel.fade .carousel-item {
             transition: opacity 1.2s ease-in-out; 
         }
+        
         .carousel-item.active {
-            opacity: 1; /* Mostra apenas o slide ativo */
-            position: relative; /* Mantém o fluxo */
+            opacity: 1;
+            position: relative;
         }
         
         .carousel-title {
@@ -190,7 +171,6 @@
             opacity: 1;
         }
         
-        /* Responsividade */
         @media (max-width: 768px) {
             .carousel-fixo {
                 height: 50vh;
@@ -211,7 +191,7 @@
         
         @media (max-width: 480px) {
             .carousel-fixo {
-                height: 55vh; /* Um pouco mais alto para mobile */
+                height: 55vh;
             }
             
             .carousel-item {
@@ -232,32 +212,21 @@
             
             .carousel-control-prev, 
             .carousel-control-next {
-                width: 10%; /* Botões maiores em mobile */
+                width: 10%;
             }
         }
-        /* Seção de Fontes ajustada */
+        
         .fontes-section {
-            background: linear-gradient(135deg,
-    #0a1f38 0%,     /* Azul naval escuro */
-    #0c2845 20%,     /* Azul marinho */
-    #0e3252 40%,     /* Azul petróleo */
-    #123d60 60%,     /* Azul royal */
-    #16496f 80%,     /* Azul elétrico */
-    #1a5680 100%     /* Azul cerúleo profundo */
-);
+            background: linear-gradient(135deg, #0a1f38 0%, #0c2845 20%, #0e3252 40%, #123d60 60%, #16496f 80%, #1a5680 100%);
             border-radius: 8px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow:
-                0 8px 32px rgba(0, 60, 80, 0.25),
-                0 4px 8px rgba(0, 180, 150, 0.3),
-                inset 0 0 16px rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 60, 80, 0.25), 0 4px 8px rgba(0, 180, 150, 0.3), inset 0 0 16px rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
         
-        /* Efeito de brilho dinâmico */
         .fontes-section::before {
             content: '';
             position: absolute;
@@ -265,9 +234,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, 
-                rgba(255, 255, 255, 0.15) 0%, 
-                rgba(255, 255, 255, 0) 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
             animation: rotate-glow 20s linear infinite;
             opacity: 0.6;
             z-index: 0;
@@ -278,17 +245,13 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Garantindo que o conteúdo fique acima do efeito */
         .fontes-section > * {
             position: relative;
             z-index: 1;
         }
         
         .fontes-section:hover {
-            box-shadow: 
-                0 10px 25px rgba(0, 0, 0, 0.2),
-                0 4px 6px rgba(10, 80, 50, 0.4),
-                inset 0 1px 2px rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(10, 80, 50, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.15);
         }
 
         .fontes-section h2 {
@@ -306,18 +269,7 @@
         }
 
         .quadrado-fonte {
-            background: linear-gradient(
-                135deg, 
-                #0a5f7a 0%, 
-                #0d3248 12.5%, 
-                #11425a 25%, 
-                #165a72 37.5%, 
-                #1c728a 50%, 
-                #258b9e 62.5%, 
-                #32a4b2 75%, 
-                #45bdc6 87.5%, 
-                #5cd6da 100%
-              );
+            background: linear-gradient(135deg, #0a5f7a 0%, #0d3248 12.5%, #11425a 25%, #165a72 37.5%, #1c728a 50%, #258b9e 62.5%, #32a4b2 75%, #45bdc6 87.5%, #5cd6da 100%);
             border-radius: 8px;
             padding: 1.5rem;
             text-align: center;
@@ -336,18 +288,7 @@
         .quadrado-fonte:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
-            background: linear-gradient(
-                135deg,
-                #0a5a8a 0%,          /* Azul marinho profundo */
-                #0d4a7a 12.5%,      /* Azul ultramarino */
-                #12608a 25%,        /* Azul oceano médio */
-                #1a75a3 37.5%,      /* Azul tropical */
-                #2288b4 50%,        /* Azul claro coralino */
-                #2d9ac5 62.5%,      /* Azul céu-marinho */
-                #3aadd6 75%,        /* Azul piscina brilhante */
-                #4ac0e7 87.5%,     /* Azul claro cristalino (ponto adicional) */
-                #5fd4f0 100%       /* Azul gelo (toque final mais claro) */
-              );
+            background: linear-gradient(135deg, #0a5a8a 0%, #0d4a7a 12.5%, #12608a 25%, #1a75a3 37.5%, #2288b4 50%, #2d9ac5 62.5%, #3aadd6 75%, #4ac0e7 87.5%, #5fd4f0 100%);
         }
 
         .quadrado-fonte i {
@@ -363,7 +304,6 @@
             font-size: 1.1rem;
         }
 
-        /* Footer */
         .site-footer {
             background: linear-gradient(135deg, #1a4b6d, #2d6e6d);
             color: white;
@@ -415,23 +355,11 @@
             .quadrados-container {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .carousel-seade .carousel-inner {
-                padding: 2rem 5%;
-            }
         }
 
         @media (max-width: 576px) {
             .quadrados-container {
                 grid-template-columns: 1fr;
-            }
-            
-            .carousel-seade .carousel-title {
-                font-size: 1.4rem;
-            }
-            
-            .carousel-seade .carousel-data {
-                font-size: 1.1rem;
             }
             
             .footer-social {
@@ -444,6 +372,231 @@
                 display: none;
             }
         }
+    
+        .card-group {
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: rgba(26, 75, 109, 0.3) !important;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            transition: all 0.3s ease;
+            border-radius: 8px !important;
+            overflow: hidden;
+            margin: 0 0.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: rgba(26, 75, 109, 0.5) !important;
+        }
+
+        .card-title {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .card-text {
+            color: rgba(255, 255, 255, 0.8);
+            min-height: 60px;
+        }
+
+        .card-footer {
+            background: rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .btn-outline-light {
+            border-width: 2px;
+            font-weight: 500;
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .card-group {
+                flex-direction: column;
+            }
+            
+            .card {
+                margin: 0.5rem 0;
+            }
+        }
+
+        #socialCarousel {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+            position: relative;
+        }
+
+        #socialCarousel .carousel-inner {
+            padding: 30px 0;
+        }
+
+        #socialCarousel .carousel-item {
+            transition: transform 1s ease;
+        }
+
+        .social-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            background: rgba(26, 75, 109, 0.3) !important;
+            min-height: 250px;
+            margin: 0 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 55%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0) 100%);
+            transform: rotate(30deg);
+            opacity: 0;
+            transition: all 0.7s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 180, 216, 0.3);
+        }
+
+        .social-card:hover::before {
+            opacity: 1;
+            top: -30%;
+            left: -30%;
+            transition-delay: 0.1s;
+        }
+
+        .social-card:hover .card-title {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .social-card:hover .bi {
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.7));
+        }
+
+        .social-card:hover .btn-outline-light {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #socialCarousel .carousel-control-prev,
+        #socialCarousel .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background: rgba(10, 25, 41, 0.7);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #socialCarousel .carousel-control-prev {
+            left: -25px;
+        }
+
+        #socialCarousel .carousel-control-next {
+            right: -25px;
+        }
+
+        #socialCarousel .carousel-control-prev:hover,
+        #socialCarousel .carousel-control-next:hover {
+            background: rgba(0, 180, 216, 0.7);
+            opacity: 1;
+        }
+
+        @media (max-width: 992px) {
+            #socialCarousel {
+                padding: 0 30px;
+            }
+            
+            .social-card {
+                margin-bottom: 20px;
+            }
+            
+            #socialCarousel .carousel-control-prev {
+                left: -15px;
+            }
+            
+            #socialCarousel .carousel-control-next {
+                right: -15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #socialCarousel {
+                padding: 0 15px;
+            }
+            
+            #socialCarousel .carousel-control-prev,
+            #socialCarousel .carousel-control-next {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .titulo-destaque-container {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            padding: 0 1rem;
+        }
+
+        .titulo-destaque {
+            display: inline-block;
+            position: relative;
+        }
+
+        .titulo-destaque-texto {
+            color: #2b83e7;
+            font-size: 2.2rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .destaque-instagram {
+            color: #0ff707;
+            text-shadow: 0 0 8px rgba(15, 247, 7, 0.4);
+            font-weight: 700;
+        }
+
+        .barra-destaque {
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #0ff707 30%, #0ff707 70%, transparent 100%);
+            margin: 0 auto;
+            width: 80%;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .titulo-destaque-texto {
+                font-size: 1.8rem;
+            }
+            
+            .barra-destaque {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-destaque-texto {
+                font-size: 1.5rem;
+            }
+        }        
     </style>
 </head>
 
@@ -460,11 +613,9 @@
     </header>
 
     <main>
-        <!-- Carrossel ajustado -->
         <div class="carousel-fixo">
             <div id="carouselDados" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <!-- Slide 1 -->
                     <div class="carousel-item active">
                         <h3 class="carousel-title">Refinanciamento da Dívida Pública Federal</h3>
                         <div class="carousel-data">
@@ -475,7 +626,6 @@
                         </div>
                     </div>
                     
-                    <!-- Slide 2 -->
                     <div class="carousel-item">
                         <h3 class="carousel-title">Censo Demográfico de 2022</h3>
                         <div class="carousel-data">
@@ -486,7 +636,6 @@
                         </div>
                     </div>
                     
-                    <!-- Slide 3 -->
                     <div class="carousel-item">
                         <h3 class="carousel-title">Arrecadação Federal</h3>
                         <div class="carousel-data">
@@ -497,7 +646,6 @@
                         </div>
                     </div>
                     
-                    <!-- Slide 4 -->
                     <div class="carousel-item">
                         <h3 class="carousel-title">Saneamento Básico</h3>
                         <div class="carousel-data">
@@ -509,7 +657,6 @@
                     </div>
                 </div>
                 
-                <!-- Controles -->
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselDados" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Anterior</span>
@@ -521,7 +668,116 @@
             </div>
         </div>
 
-        <!-- Seção de Fontes ajustada para 3 por linha -->
+        <section class="titulo-destaque-container">
+            <div class="titulo-destaque">
+                <h1 class="titulo-destaque-texto">
+                    Últimas atualizações em <span class="destaque-instagram">@dados_impopulares</span>
+                </h1>
+                <div class="barra-destaque"></div>
+            </div>
+        </section>
+
+        <section class="mt-5 mb-5">
+            <div id="socialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner container">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card social-card bg-transparent border-light text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-globe me-2"></i>Censo Demográfico </h5>
+                                        <p class="card-text">Pirâmide Estária do Brasil dos censos demográficos de 2010 e  2022</p>
+                                        <a href="https://www.instagram.com/p/DGB6BHbxGvy/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn btn-sm btn-outline-light">Dá um clique e confere</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Censos Demográficos de 2010 e 2022 - IBGE</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card social-card bg-transparent border-light text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-fuel-pump me-2"></i>Preços dos Combustíveis</h5>
+                                        <p class="card-text">Pesquisa da ANP sobre o preço dos Combustíveis de Março de 2025</p>
+                                        <a href="https://www.instagram.com/p/DHSBvayxHmZ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="btn btn-sm btn-outline-light">Vem dar uma olhada</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: ANP</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card social-card bg-transparent border-light text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-building me-2"></i>Emendas de Bancada</h5>
+                                        <p class="card-text">A Bancada do seu Estado é influente no Congresso Nacional ?</p>
+                                        <a href="https://www.instagram.com/p/DICmgYjxAPo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="btn btn-sm btn-outline-light">Como está o seu Estado?</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Portal da Transparência - CGU</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card social-card bg-transparent border-light text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-pencil me-2"></i>Escolas sem acesso a rede esgoto em 2024</h5>
+                                        <p class="card-text">Um desafio para a Educação: Escolas sem acesso a rede esgoto de acordo com Censo Escolar de 2024</p>
+                                        <a href="https://www.instagram.com/p/DIfCcmCxyH5/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="btn btn-sm btn-outline-light">Vamos Conferir?</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Censo Escolar de 2024 - INEP</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card social-card bg-transparent border-light text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-map me-2"></i>População Indígena do Brasil</h5>
+                                        <p class="card-text">Como a população indígena do Brasil está distribuída no território de acordo com os ultimos Censos Demográficos</p>
+                                        <a href="#" class="btn btn-sm btn-outline-light">Brasil Terra Indígena!</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Censos Demográficos de 2010 e 2022 - IBGE</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card social-card bg-transparent border-light text-white">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><i class="bi bi-graph-up me-2"></i>Desafios da Educação</h5>
+                                        <p class="card-text">Abastecimento de água, essencial para toda e qualquer a atividade humana, não é universal em todas as escolas do Brasil</p>
+                                        <a href="https://www.instagram.com/p/DIfC_kuRdW2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="btn btn-sm btn-outline-light">Como Estamos ?</a>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Censo Escolar de 2024 - INEP</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#socialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#socialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </section>
+
         <section class="fontes-section">
             <h2>Principais Fontes de Dados</h2>
             <div class="quadrados-container">
@@ -544,8 +800,6 @@
                     <i class="bi bi-building"></i>
                     <a href="https://www.tesourotransparente.gov.br/" target="_blank">Tesouro Nacional</a>
                 </div>
-                
-                
             </div>
         </section>
     </main>
@@ -572,9 +826,44 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var myCarousel = new bootstrap.Carousel(document.getElementById('carouselDados'), {
-                interval: 8000,  // 8 segundos por slide (aumentado)
+                interval: 8000,
                 wrap: true
             });
+            
+            const socialCarousel = new bootstrap.Carousel(document.getElementById('socialCarousel'), {
+                interval: 5000,
+                wrap: true,
+                touch: true
+            });
+            
+            document.getElementById('socialCarousel').addEventListener('mouseenter', function() {
+                socialCarousel.pause();
+            });
+            
+            document.getElementById('socialCarousel').addEventListener('mouseleave', function() {
+                socialCarousel.cycle();
+            });
+            
+            function adjustCarousel() {
+                const cards = document.querySelectorAll('#socialCarousel .carousel-item');
+                
+                cards.forEach(card => {
+                    card.classList.remove('col-md-4', 'col-md-6');
+                });
+                
+                if (window.innerWidth >= 992) {
+                    cards.forEach(card => {
+                        card.classList.add('col-md-4');
+                    });
+                } else if (window.innerWidth >= 768) {
+                    cards.forEach(card => {
+                        card.classList.add('col-md-6');
+                    });
+                }
+            }
+            
+            window.addEventListener('resize', adjustCarousel);
+            adjustCarousel();
         });
     </script>
 </body>
