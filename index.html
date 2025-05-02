@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Dados Impopulares</title>
     <style>
         body {
@@ -406,6 +407,19 @@
         .card-footer {
             background: rgba(0, 0, 0, 0.2) !important;
         }
+        .card-title {
+            color: #fff;
+            font-weight: 600;
+        }
+        .card-footer {
+            color: rgba(255, 255, 255, 0.9) !important; /* Texto principal do footer */
+            border-top: 1px solid rgba(255, 255, 255, 0.15) !important;
+        }
+        
+        .card-footer small {
+            color: rgba(255, 255, 255, 0.8) !important; /* Texto dentro da tag <small> */
+            font-size: 0.85rem;
+        }
 
         .btn-outline-light {
             border-width: 2px;
@@ -677,151 +691,126 @@
             </div>
         </section>
 
-       <section class="mt-5 mb-5">
-    <div id="socialCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner container">
-            <div class="carousel-item active">
-                <div class="row">
-                    <!-- Card 1 - Censo Demográfico -->
-                    <div class="col-md-4">
-                        <div class="card social-card bg-transparent border-light text-white h-100">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">
-                                    <a href="https://www.instagram.com/p/DGB6BHbxGvy/" target="_blank" class="text-white text-decoration-none">
-                                        <i class="bi bi-people-fill me-2"></i> Evolução Populacional
-                                    </a>
-                                </h5>
-                                <p class="card-text flex-grow-1">Comparativo da pirâmide etária brasileira entre os censos de 2010 e 2022</p>
-                                <div class="mt-auto">
-                                    <div class="card-footer bg-transparent border-light pt-2 pb-2">
-                                        <small class="d-block">Fonte: IBGE - Censos Demográficos</small>
-                                        <small class="text-muted">Postado: 15/03/2025</small>
+        <section class="mt-5 mb-5">
+            <div id="socialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Primeiro slide (ativo) -->
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card social-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="https://www.instagram.com/p/DJKXs0exW0V/" target="_blank" class="text-white text-decoration-none">
+                                                <i class="bi bi-briefcase me-2"></i> Estatísticas do Mundo do Trabalho
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">1º de Maio: Dia dos Trabalhadores</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: PNAD-Contínua 4º Trimestre de 2024 - IBGE</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card social-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="https://www.instagram.com/p/DHSBvayxHmZ/" target="_blank" class="text-white text-decoration-none">
+                                                <i class="bi bi-fuel-pump me-2"></i> Preços dos Combustíveis
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">Pesquisa da ANP sobre o preço dos combustíveis de março de 2025</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: ANP</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card social-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="https://www.instagram.com/p/DICmgYjxAPo/" target="_blank" class="text-white text-decoration-none">
+                                                <i class="bi bi-building me-2"></i> Emendas de Bancada
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">A bancada do seu estado é influente no Congresso Nacional?</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Portal da Transparência - CGU</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Card 2 - Preços dos Combustíveis -->
-                    <div class="col-md-4">
-                        <div class="card social-card bg-transparent border-light text-white h-100">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">
-                                    <a href="https://www.instagram.com/p/DHSBvayxHmZ/" target="_blank" class="text-white text-decoration-none">
-                                        <i class="bi bi-fuel-pump-diesel me-2"></i> Combustíveis
-                                    </a>
-                                </h5>
-                                <p class="card-text flex-grow-1">Variação dos preços médios de gasolina, etanol e diesel em 2025</p>
-                                <div class="mt-auto">
-                                    <div class="card-footer bg-transparent border-light pt-2 pb-2">
-                                        <small class="d-block">Fonte: ANP - Pesquisa Semanal</small>
-                                        <small class="text-muted">Postado: 22/03/2025</small>
+                    
+                    <!-- Segundo slide -->
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card social-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="https://www.instagram.com/p/DIfCcmCxyH5/" target="_blank" class="text-white text-decoration-none">
+                                                <i class="bi bi-pencil me-2"></i> Escolas sem acesso à rede de esgoto
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">Desafio: escolas sem esgoto conforme o Censo Escolar de 2024</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Censo Escolar de 2024 - INEP</small>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 - Emendas de Bancada -->
-                    <div class="col-md-4">
-                        <div class="card social-card bg-transparent border-light text-white h-100">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">
-                                    <a href="https://www.instagram.com/p/DICmgYjxAPo/" target="_blank" class="text-white text-decoration-none">
-                                        <i class="bi bi-cash-stack me-2"></i> Emendas Parlamentares
-                                    </a>
-                                </h5>
-                                <p class="card-text flex-grow-1">Análise da distribuição de emendas por bancadas estaduais no Congresso</p>
-                                <div class="mt-auto">
-                                    <div class="card-footer bg-transparent border-light pt-2 pb-2">
-                                        <small class="d-block">Fonte: Portal da Transparência - CGU</small>
-                                        <small class="text-muted">Postado: 29/03/2025</small>
+                            
+                            <div class="col-md-4">
+                                <div class="card social-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="#" class="text-white text-decoration-none">
+                                                <i class="bi bi-map me-2"></i> População Indígena do Brasil
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">Distribuição indígena segundo os últimos censos demográficos</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Censos Demográficos de 2010 e 2022 - IBGE</small>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Segunda página do carrossel -->
-            <div class="carousel-item">
-                <div class="row">
-                    <!-- Card 4 - Escolas sem Esgoto -->
-                    <div class="col-md-4">
-                        <div class="card social-card bg-transparent border-light text-white h-100">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">
-                                    <a href="https://www.instagram.com/p/DIfCcmCxyH5/" target="_blank" class="text-white text-decoration-none">
-                                        <i class="bi bi-droplet me-2"></i> Saneamento Escolar
-                                    </a>
-                                </h5>
-                                <p class="card-text flex-grow-1">Escolas públicas sem acesso à rede de esgoto no Brasil</p>
-                                <div class="mt-auto">
-                                    <div class="card-footer bg-transparent border-light pt-2 pb-2">
-                                        <small class="d-block">Fonte: INEP - Censo Escolar 2024</small>
-                                        <small class="text-muted">Postado: 05/04/2025</small>
+                            
+                            <div class="col-md-4">
+                                <div class="card social-card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <a href="https://www.instagram.com/p/DIfC_kuRdW2/" target="_blank" class="text-white text-decoration-none">
+                                                <i class="bi bi-graph-up me-2"></i> Desafios da Educação
+                                            </a>
+                                        </h5>
+                                        <p class="card-text">Nem todas as escolas têm acesso a abastecimento de água</p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 5 - População Indígena -->
-                    <div class="col-md-4">
-                        <div class="card social-card bg-transparent border-light text-white h-100">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">
-                                    <a href="#" class="text-white text-decoration-none">
-                                        <i class="bi bi-geo-alt-fill me-2"></i> População Indígena
-                                    </a>
-                                </h5>
-                                <p class="card-text flex-grow-1">Distribuição territorial e crescimento da população indígena (2010-2022)</p>
-                                <div class="mt-auto">
-                                    <div class="card-footer bg-transparent border-light pt-2 pb-2">
-                                        <small class="d-block">Fonte: IBGE - Censo 2022</small>
-                                        <small class="text-muted">Postado: 12/04/2025</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 6 - Água nas Escolas -->
-                    <div class="col-md-4">
-                        <div class="card social-card bg-transparent border-light text-white h-100">
-                            <div class="card-body d-flex flex-column">
-                                <h5 class="card-title">
-                                    <a href="https://www.instagram.com/p/DIfC_kuRdW2/" target="_blank" class="text-white text-decoration-none">
-                                        <i class="bi bi-water me-2"></i> Água Potável
-                                    </a>
-                                </h5>
-                                <p class="card-text flex-grow-1">Escolas brasileiras sem acesso regular à água potável</p>
-                                <div class="mt-auto">
-                                    <div class="card-footer bg-transparent border-light pt-2 pb-2">
-                                        <small class="d-block">Fonte: INEP - Censo Escolar 2024</small>
-                                        <small class="text-muted">Postado: 05/04/2025</small>
+                                    <div class="card-footer bg-transparent border-light">
+                                        <small>Fonte: Censo Escolar de 2024 - INEP</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#socialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#socialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
             </div>
-        </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#socialCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#socialCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Próximo</span>
-        </button>
-    </div>
-</section>
-        
-        
+        </section>
 
         <section class="fontes-section">
             <h2>Principais Fontes de Dados</h2>
@@ -890,7 +879,7 @@
             });
             
             function adjustCarousel() {
-                const cards = document.querySelectorAll('#socialCarousel .carousel-item');
+                const cards = document.querySelectorAll('#socialCarousel .carousel-item .col-md-4');
                 
                 cards.forEach(card => {
                     card.classList.remove('col-md-4', 'col-md-6');
