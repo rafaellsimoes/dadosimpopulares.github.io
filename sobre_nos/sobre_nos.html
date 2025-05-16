@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Dados Impopulares</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg,
+    #0a1a2a 0%,
+    #0b2b36 25%,
+    #0e4a4a 50%,
+    #1a6b5a 75%,
+    #28a178 100%
+);
+            color: #333;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg,
+            #0a1a2a 0%,      /* Azul quase preto */
+            #0d2338 20%,     /* Azul marinho profundo */
+            #112f4a 40%,     /* Azul político (tom clássico PSDB) */
+            #1a3e5f 60%,     /* Azul royal */
+            #24507a 80%,     /* Azul médio (mais vibrante) */
+            #2d5d8c 100%     /* Azul eletrico (destaque) */
+        );
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid #090431;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .sobre-container {
+            background: linear-gradient(145deg, 
+                rgba(10, 45, 66, 0.95) 0%,
+                rgba(34, 115, 132, 0.95) 50%, 
+                rgba(74, 184, 180, 0.95) 100%
+            );
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            color: #f0f8ff;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .sobre-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 0;
+        }
+        
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .valor-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .valor-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .valor-card i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0c0850;
+        }
+        
+        .valor-card h3 {
+            margin: 0.5rem 0;
+            color: white;
+        }
+        
+        .botoes-temas {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .botao-tema {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .botao-tema:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .site-footer {
+            background: linear-gradient(135deg, #1a4b6d, #2d6e6d);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-social {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-social a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: opacity 0.3s;
+            display: inline-block;
+        }
+        
+        .footer-social a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        .separator {
+            opacity: 0.5;
+            margin: 0 0.5rem;
+        }
+        
+        .footer-institutional {
+            margin: 1rem 0;
+            line-height: 1.6;
+        }
+        
+        .footer-institutional i {
+            margin: 0 0.3rem;
+            opacity: 0.8;
+        }
+        
+        .stats-icon {
+            transform: rotate(15deg);
+        }
+        
+        .footer-copyright {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85rem;
+        }
+        
+        .footer-copyright q {
+            font-style: italic;
+        }
+        
+        .institutional-link {
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.2rem 0;
+        }
+        
+        .institutional-link:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+        
+        .bi {
+            font-size: 1.05em;
+            vertical-align: -0.125em;
+        }
+        
+        .footer-institutional p {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        @media (max-width: 576px) {
+            .footer-institutional p {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .footer-social {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .separator {
+                display: none;
+            }
+        }
+
+
+      /* Botões */
+    .botoes-temas {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .badge {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .badge-pill {
+        border-radius: 50rem;
+    }
+    
+    .badge-primary {
+        background-color: #1a4b6d;
+        color: white;
+    }
+    
+    .badge-info {
+        background-color: #2d8a94;
+        color: white;
+    }
+    
+    .badge-success {
+        background-color: #2a7a62;
+        color: white;
+    }
+    
+    .badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        opacity: 0.9;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Quem Somos</h1>
+        <p>Os Bastidores mais impopulares das estatísticas públicas </p>
+        
+        <div class="botoes-temas">
+            <a href="index.html" class="badge badge-pill badge-primary">Início</a>
+            <a href="sobre_nos.html" class="badge badge-pill badge-info">Sobre Nós</a>
+            <a href="infograficos.html" class="badge badge-pill badge-success">Infográficos</a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="sobre-container">
+            <h2>Porque Dados Impopulares?</h2>
+            <p>Dados Impopulares é o seu atalho pra entender os dados públicos que ninguém te explica direito. A gente pega aquelas planilhas confusas, 
+                tabelas gigantes e relatórios cheios de termo técnico – e transforma em gráficos que fazem sentido, mapas visualmente maneirinhos e análises sem enrolação.
+                Porque dados públicos deveriam ser fáceis de entender, mas a realidade é que... não são. E pior: muitas vezes escondem verdades incômodas, inesperadas ou simplesmente impopulares.
+                A gente corre atrás delas – e entrega de um jeito que você consiga usar.</p>
+            <aside class="valores-grid">
+                <div class="valor-card">
+                    <i class="bi bi-lightbulb"></i>
+                    <h3>Uma Ideia</h3>
+                    <p>Dados públicos saindo do labirinto das planilhas e chegando em gráficos e mapas que você realmente entende. </p>
+                </div>
+                <div class="valor-card">
+                    <i class="bi bi-fuel-pump"></i>
+                    <h3>Dados são o novo petróleo </h3>
+                    <p>Dominar bases de dados, especialmente as fontes públicas de informação, construir gráficos, tabelas resumidas e mapas temáticos, além de identificar tendências, tornou-se essencial em um mundo em constante evolução. 
+                        Compreender a realidade por meio de dados e estatísticas é um imperativo da nossa era, pois embasa decisões mais assertivas e revela insights cruciais para o progresso.</p>
+                </div>
+            </aside>
+        </div>
+
+        <div class="sobre-container">
+            <h1>Equipe Impopular</h1>
+
+            <aside class="valores-grid">
+                <div class="valor-card">
+                    <i class="bi-mortarboard"></i>
+                    <h3>Coordenador</h3>
+                    <p>Ulisses Carlos Silva Ferreira - Doutor (2022) e Mestre (2018) em População, 
+                        Território e Estatísticas Públicas pela ENCE/IBGE e bacharel em Estatística pela UFF (2015).
+                         Atuou como Professor Substituto na UFF e bolsista de pesquisa no Ipea, no projeto Atlas do Estado Brasileiro. 
+                         Trabalhou na EBSERH-SEDE como Analista Estatístico na Assessoria de Planejamento.
+                          Atualmente é docente no Departamento de Estatística da UFMT. Seus interesses de pesquisa incluem Planejamento Urbano, 
+                          Mobilidade Urbana, Movimentos Pendulares e Estatística Social. </p>
+                   
+                </div>
+                <div class="valor-card">
+                    <i class="bi bi-cpu"></i>
+                    <h3>Desenvolvedor </h3>
+                    <p>Rafael Simões - Desenvolvedor da página Dados Impopulares, bacharel em Engenharia da Computação
+                        e estudante de Estatística pela UFMT.
+                    </p>
+
+                </div>
+            </aside>
+        </div>
+        <div class="sobre-container">
+    <figure class="citacao-destaque">
+    
+             <blockquote class="texto-citacao">
+                            <p>"Os dados não mentem, mas os mentirosos manipulam dados."</p>
+                        </blockquote>
+       
+        <figcaption class="autor-citacao">— David Salsburg</figcaption>
+    </figure>
+</div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://www.instagram.com/dados_impopulares/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @dados_impopulares
+                </a>
+                <span class="separator">|</span>
+                <a href="https://www.instagram.com/estatistica.ufmt/" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-instagram"></i> @estatistica.ufmt
+                </a>
+            </div>
+            
+            
+            <div class="footer-copyright">
+                <p>
+                    © 2025 Dados Impopulares | 
+                    <q>A verdade não precisa ser popular</q>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
