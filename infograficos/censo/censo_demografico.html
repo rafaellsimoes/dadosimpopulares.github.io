@@ -582,7 +582,7 @@
                 const isLocal = window.location.protocol === 'file:';
                 
                 // Caminho para o arquivo JSON (ajuste conforme necessário)
-                const caminhoJson = isLocal ? 'dados_pop_mun.json' : './dados_pop_mun.json';
+                const caminhoJson = isLocal ? 'dados_mun.json' : './dados_mun.json';
                 
                 fetch(caminhoJson)
                     .then(response => {
